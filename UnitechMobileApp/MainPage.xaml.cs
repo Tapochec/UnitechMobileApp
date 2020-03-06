@@ -26,11 +26,19 @@ namespace UnitechMobileApp
         {
             string login = LoginInput.Text;
             string password = PasswordInput.Text;
+            bool authResult;
 
-            Debug.WriteLine(Client.LogIn(login, password));
-            Debug.WriteLine("\n\n");
-            Debug.WriteLine(Client.News(0,1));
+            Client.LogIn(login, password, out authResult);
+            Client.Schedule();
+            //Debug.WriteLine(Client.LogIn(login, password, out authResult));
+            //Debug.WriteLine("\n\n");
+            //Debug.WriteLine(Client.News(0,1));
 
+            string alertText = "Успешно.";
+            if (authResult == false)
+                alertText = "Не правильное сочетание логина и пароля.";
+
+            DisplayAlert("Alert", alertText, "Ok");
         }
     }
 }
