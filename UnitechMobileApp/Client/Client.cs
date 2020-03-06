@@ -11,7 +11,8 @@ namespace ClientApi
         /// <summary>
         /// метод выполняет request и возвращает строку полученную из него
         /// </summary>
-        static string ResponseToString(HttpWebRequest request) {
+        static string FillRequest(HttpWebRequest request)
+        {
             string result = "";
 
             using (HttpWebResponse response = (HttpWebResponse)request.GetResponse())
@@ -45,13 +46,16 @@ namespace ClientApi
         /// <param name="login"></param>
         /// <param name="password"></param>
         /// <returns> Json строку при удачной аутентификации и "null" при неудаче</returns>
-        static public string LogIn(string login, string password) {
+        static public string LogIn(string login, string password)
+        {
             HttpWebRequest request = (HttpWebRequest)HttpWebRequest.Create($"{domain}&query=AUTH&login={login}&password={password}");
             request.CookieContainer = new CookieContainer();
             string result = "";
-            
-            using (HttpWebResponse response = (HttpWebResponse)request.GetResponse()) {
-                if (cookies == null) {
+
+            using (HttpWebResponse response = (HttpWebResponse)request.GetResponse())
+            {
+                if (cookies == null)
+                {
                     cookies = new CookieContainer();
                     cookies.Add(response.Cookies);
                 }
@@ -70,7 +74,7 @@ namespace ClientApi
                 response.Close();
             }
 
-                return result;
+            return result;
         }
 
         /// <summary>
@@ -79,11 +83,12 @@ namespace ClientApi
         /// <param name="offset">Смещение относительно последней новости</param>
         /// <param name="limit">Количестов новостей которые нужно взять (0 - все)</param>
         /// <returns>Html с текстом новостей </returns>
-        static public string News(int offset = 0, int limit = 1) {
+        static public string News(int offset = 0, int limit = 1)
+        {
             HttpWebRequest request = (HttpWebRequest)HttpWebRequest.Create($"{domain}&query=NEWS&offset={offset}&limit={limit}");
             request.CookieContainer = cookies;
-            
-            return ResponseToString(request);
+
+            return FillRequest(request);
 
         }
 
@@ -96,7 +101,7 @@ namespace ClientApi
             HttpWebRequest request = (HttpWebRequest)HttpWebRequest.Create($"{domain}&query=SCHEDULE");
             request.CookieContainer = cookies;
 
-            return ResponseToString(request);
+            return FillRequest(request);
         }
     }
 }
