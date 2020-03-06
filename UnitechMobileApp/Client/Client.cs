@@ -17,12 +17,6 @@ namespace ClientApi
 
             using (HttpWebResponse response = (HttpWebResponse)request.GetResponse())
             {
-                if (cookies == null)
-                {
-                    cookies = new CookieContainer();
-                    cookies.Add(response.Cookies);
-                }
-
                 using (Stream stream = response.GetResponseStream())
                 {
                     using (StreamReader reader = new StreamReader(stream))
@@ -54,11 +48,8 @@ namespace ClientApi
 
             using (HttpWebResponse response = (HttpWebResponse)request.GetResponse())
             {
-                if (cookies == null)
-                {
-                    cookies = new CookieContainer();
-                    cookies.Add(response.Cookies);
-                }
+                cookies = new CookieContainer();
+                cookies.Add(response.Cookies);
 
                 using (Stream stream = response.GetResponseStream())
                 {
