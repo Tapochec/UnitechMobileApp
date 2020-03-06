@@ -29,7 +29,7 @@ namespace UnitechMobileApp
 
             Debug.WriteLine(Client.LogIn(login, password));
             Debug.WriteLine("\n\n");
-            Debug.WriteLine(Client.News(0,1));
+            Debug.WriteLine(Client.Schedule());
 
         }
     }
