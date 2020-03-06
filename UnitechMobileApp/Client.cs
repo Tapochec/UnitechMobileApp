@@ -34,10 +34,7 @@ namespace ClientApi
             string result = "";
             
             using (HttpWebResponse response = (HttpWebResponse)request.GetResponse()) {
-                //cookies.Add(response.Cookies);
-
-                if (cookies == null)
-                {
+                if (cookies == null) {
                     cookies = new CookieContainer();
                     cookies.Add(response.Cookies);
                 }
