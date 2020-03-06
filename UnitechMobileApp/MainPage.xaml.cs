@@ -8,6 +8,7 @@ using System.Net;
 using System.Text;
 using System.Threading.Tasks;
 using Xamarin.Forms;
+using ClientApi;
 
 namespace UnitechMobileApp
 {
@@ -26,26 +27,10 @@ namespace UnitechMobileApp
             string login = LoginInput.Text;
             string password = PasswordInput.Text;
 
-            string requestText = "https://ies.unitech-mo.ru/api?token=e78a4a9c0b16dd06b0ebc4748345a144&query=AUTH&" + 
-                $"login={login}&password={password}";
+            Debug.WriteLine(Client.LogIn(login, password));
+            Debug.WriteLine("\n\n");
+            Debug.WriteLine(Client.News(0,1));
 
-            WebRequest request = WebRequest.Create(requestText);
-            request.Method = "POST";
-
-            WebResponse response = request.GetResponse();
-
-            using (Stream stream = response.GetResponseStream())
-            {
-                using (StreamReader reader = new StreamReader(stream))
-                {
-                    string line = "";
-                    while ((line = reader.ReadLine()) != null)
-                    {
-                        Debug.WriteLine(line);
-                    }
-                }
-            }
-            response.Close();
         }
     }
 }
