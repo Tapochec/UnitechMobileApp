@@ -67,6 +67,8 @@ namespace ClientApi
                 authResult = result != "null";
             }
 
+            authResult = !(result == "null");
+
             return result;
         }
 
