@@ -7,10 +7,16 @@
              x:Class="UnitechMobileApp.Views.JournalPage"
              Title="Журнал">
     <ContentPage.Content>
-        <StackLayout>
+        <!--<StackLayout>
             <Label Text="Журнал"
                 VerticalOptions="CenterAndExpand" 
                 HorizontalOptions="CenterAndExpand" />
-        </StackLayout>
+        </StackLayout>-->
+        <ListView HorizontalOptions="CenterAndExpand" 
+                  ItemsSource = "{Binding Academics}"
+                  ItemTapped="ListView_ItemTapped">
+        </ListView>
+
+
     </ContentPage.Content>
 </ContentPage>
