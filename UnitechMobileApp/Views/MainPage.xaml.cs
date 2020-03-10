@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 using Xamarin.Forms;
 using ClientApi;
 
-namespace UnitechMobileApp
+namespace UnitechMobileApp.Views
 {
     // Learn more about making custom code visible in the Xamarin.Forms previewer
     // by visiting https://aka.ms/xamarinforms-previewer
@@ -20,17 +20,8 @@ namespace UnitechMobileApp
         public MainPage()
         {
             InitializeComponent();
-        }
 
-        private void Button_Clicked(object sender, EventArgs e)
-        {
-            string login = LoginInput.Text;
-            string password = PasswordInput.Text;
-
-            Debug.WriteLine(Client.LogIn(login, password));
-            Debug.WriteLine("\n\n");
-            Debug.WriteLine(Client.Schedule());
-
+            Navigation.PushModalAsync(new AuthPage());
         }
     }
 }

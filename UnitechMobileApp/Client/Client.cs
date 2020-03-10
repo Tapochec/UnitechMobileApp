@@ -40,7 +40,7 @@ namespace ClientApi
         /// <param name="login"></param>
         /// <param name="password"></param>
         /// <returns> Json строку при удачной аутентификации и "null" при неудаче</returns>
-        static public string LogIn(string login, string password)
+        static public string LogIn(string login, string password, out bool authResult)
         {
             HttpWebRequest request = (HttpWebRequest)HttpWebRequest.Create($"{domain}&query=AUTH&login={login}&password={password}");
             request.CookieContainer = new CookieContainer();
@@ -64,6 +64,8 @@ namespace ClientApi
                 }
                 response.Close();
             }
+
+            authResult = !(result == "null");
 
             return result;
         }
