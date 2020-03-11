@@ -5,6 +5,8 @@ using UnitechMobileApp.Models;
 using UnitechMobileApp.Views;
 using System.Windows.Input;
 using Xamarin.Forms;
+using System.Diagnostics;
+using ClientApi;
 
 namespace UnitechMobileApp.ViewModels
 {
@@ -16,20 +18,16 @@ namespace UnitechMobileApp.ViewModels
 
         public event PropertyChangedEventHandler PropertyChanged;
 
-        
+        public void Update() {
+            Academics = Academic.JsonToListAcademics(Client.StudentPlan());
+
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Academics"));
+        }
 
 
         public JournalViewModel(JournalPage page) {
             journalPage = page;
-            Academics = new List<Academic>() { new Academic() { name = "Математика" }, new Academic() { name = "Биология" }, 
-                new Academic() { name = "Химия" }, new Academic() { name = "Физика" }, new Academic() { name = "Физ-ра" },
-                new Academic() { name = "Химия" }, new Academic() { name = "Физика" }, new Academic() { name = "Физ-ра" },
-                new Academic() { name = "Химия" }, new Academic() { name = "Физика" }, new Academic() { name = "Физ-ра" },
-                new Academic() { name = "Химия" }, new Academic() { name = "Физика" }, new Academic() { name = "Физ-ра" },
-                new Academic() { name = "Химия" }, new Academic() { name = "Физика" }, new Academic() { name = "Физ-ра" },
-                new Academic() { name = "Химия" }, new Academic() { name = "Физика" }, new Academic() { name = "Физ-ра" },
-                new Academic() { name = "Химия" }, new Academic() { name = "Физика" }, new Academic() { name = "Физ-ра" }};
-            //PropertyChanged(this, new PropertyChangedEventArgs("Academics"));
+            Update();
         }
     }
 }

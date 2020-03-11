@@ -98,5 +98,17 @@ namespace ClientApi
 
             return FillRequest(request);
         }
+
+        /// <summary>
+        /// Метод берет расписание залогиненного пользователя с API unitech-mo
+        /// </summary>
+        /// <returns>Json с расписанием</returns>
+        static public string StudentPlan()
+        {
+            HttpWebRequest request = (HttpWebRequest)HttpWebRequest.Create($"{domain}&query=STUDENT_PLAN");
+            request.CookieContainer = cookies;
+
+            return FillRequest(request);
+        }
     }
 }

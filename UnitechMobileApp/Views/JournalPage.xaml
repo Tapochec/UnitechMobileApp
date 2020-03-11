@@ -14,7 +14,13 @@
         </StackLayout>-->
         <ListView HorizontalOptions="CenterAndExpand" 
                   ItemsSource = "{Binding Academics}"
-                  ItemTapped="ListView_ItemTapped">
+                  >
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <TextCell Text="{Binding Title}"
+                              Detail="{Binding tutor}"/>
+                </DataTemplate>
+            </ListView.ItemTemplate>
         </ListView>
 
 
