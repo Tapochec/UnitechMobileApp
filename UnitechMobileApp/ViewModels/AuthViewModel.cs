@@ -33,7 +33,9 @@ namespace UnitechMobileApp.ViewModels
             authPage.ShowAuthResultMessage(result);
 
             if (result)
-                await authPage.Navigation.PopModalAsync();
+            {
+                await authPage.Navigation.PushModalAsync(new MainPage());
+            }
         }
 
         public string Login

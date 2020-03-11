@@ -11,7 +11,7 @@ namespace UnitechMobileApp
         {
             InitializeComponent();
 
-            MainPage = new NavigationPage(new MainPage());
+            MainPage = new NavigationPage(new LoadPage());
         }
 
         protected override void OnStart()

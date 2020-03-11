@@ -21,7 +21,14 @@ namespace UnitechMobileApp.Views
         {
             InitializeComponent();
 
-            Navigation.PushModalAsync(new AuthPage());
+            Navigation.PopModalAsync();
+        }
+        /// <summary>
+        /// Что бы не срабатывала навигация
+        /// </summary>
+        protected override bool OnBackButtonPressed()
+        {
+            return false;
         }
     }
 }
