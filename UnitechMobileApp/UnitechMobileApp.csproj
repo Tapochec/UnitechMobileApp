@@ -18,25 +18,25 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Compile Update="Views\LoadPage.xaml.cs">
+    <Compile Update="mvvm\Load\LoadPage.xaml.cs">
       <DependentUpon>LoadPage.xaml</DependentUpon>
     </Compile>
   </ItemGroup>
 
   <ItemGroup>
-    <EmbeddedResource Update="Views\AuthPage.xaml">
+    <EmbeddedResource Update="mvvm\Auth\AuthPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
-    <EmbeddedResource Update="Views\JournalPage.xaml">
+    <EmbeddedResource Update="mvvm\Journal\JournalPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
-    <EmbeddedResource Update="Views\LoadPage.xaml">
+    <EmbeddedResource Update="mvvm\Load\LoadPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
-    <EmbeddedResource Update="Views\ProfilePage.xaml">
+    <EmbeddedResource Update="mvvm\Profile\ProfilePage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
-    <EmbeddedResource Update="Views\SchedulePage.xaml">
+    <EmbeddedResource Update="mvvm\Schedule\SchedulePage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
   </ItemGroup>

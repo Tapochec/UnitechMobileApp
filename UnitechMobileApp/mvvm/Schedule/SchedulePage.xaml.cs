@@ -10,16 +10,11 @@ using Xamarin.Forms.Xaml;
 namespace UnitechMobileApp.Views
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
-    public partial class LoadPage : ContentPage
+    public partial class SchedulePage : ContentPage
     {
-        public LoadPage()
+        public SchedulePage()
         {
             InitializeComponent();
-            //todo:
-            //ConectionCheck
-            //TryLogin
-            Navigation.PushModalAsync(new AuthPage());
-            
         }
     }
 }

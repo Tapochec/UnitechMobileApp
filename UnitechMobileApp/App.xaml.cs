@@ -18,13 +18,6 @@ namespace UnitechMobileApp
 
         protected override void OnStart()
         {
-            //var login = CrossSettings.Current.GetValueOrDefault("UserLogin", null);
-            //var pass = CrossSettings.Current.GetValueOrDefault("UserPassword", null);
-
-            //if (login != null && pass != null)
-            //{
-                
-            //}
         }
 
         protected override void OnSleep()

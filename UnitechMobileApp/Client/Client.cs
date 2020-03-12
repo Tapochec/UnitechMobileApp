@@ -100,9 +100,9 @@ namespace ClientApi
         }
 
         /// <summary>
-        /// Метод берет расписание залогиненного пользователя с API unitech-mo
+        /// Метод берет учебный план залогиненного пользователя с API unitech-mo
         /// </summary>
-        /// <returns>Json с расписанием</returns>
+        /// <returns>Json с учебным планом</returns>
         static public string StudentPlan()
         {
             HttpWebRequest request = (HttpWebRequest)HttpWebRequest.Create($"{domain}&query=STUDENT_PLAN");

@@ -6,11 +6,6 @@ using System.Text;
 
 namespace UnitechMobileApp.Models
 {
-    class AcademicData {
-        public List<Academic> academics;
-    }
-
-
     class Academic
     {
         public string Title {
@@ -37,11 +32,6 @@ namespace UnitechMobileApp.Models
 
         public string tutor { get; set; }
         public string lesson { get; set; }
-
-        //public override string ToString()
-        //{
-        //    return $"{Semester}:{SubjText}\n{tutor}";
-        //}
 
         public static List<Academic> JsonToListAcademics(string json) {
             List<Academic> result = JsonConvert.DeserializeObject<List<Academic>>(json);

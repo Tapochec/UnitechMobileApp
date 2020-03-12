@@ -21,14 +21,7 @@ namespace UnitechMobileApp.Views
         public MainPage()
         {
             InitializeComponent();
-			var login = CrossSettings.Current.GetValueOrDefault("UserLogin", null);
-            var pass = CrossSettings.Current.GetValueOrDefault("UserPassword", null);
-
-            bool res;
-            Client.LogIn(login, pass, out res);
-
-            if (!res)
-                Navigation.PushModalAsync(new AuthPage());
+			
         }
         /// <summary>
         /// Что бы не срабатывала навигация
