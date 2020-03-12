@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Plugin.Settings;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -15,15 +16,18 @@ namespace UnitechMobileApp.Views
         public AuthPage()
         {
             InitializeComponent();
-
+            
             AuthViewModel vm = new AuthViewModel(this)
             {
+#if DEBUG
                 Login = "petrenkoas",
                 Password = "12345"
-            };
-
+#endif
+            };           
             BindingContext = vm;
         }
+
+        
 
         public async void ShowAuthResultMessage(bool authResult)
         {

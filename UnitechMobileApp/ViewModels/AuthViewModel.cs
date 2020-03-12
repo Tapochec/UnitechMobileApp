@@ -1,4 +1,5 @@
 ﻿using ClientApi;
+using Plugin.Settings;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -28,12 +29,15 @@ namespace UnitechMobileApp.ViewModels
         public async void Auth()
         {
             bool result;
+
             Client.LogIn(user.Login, user.Password, out result);
 
             authPage.ShowAuthResultMessage(result);
 
             if (result)
             {
+                CrossSettings.Current.AddOrUpdateValue("UserLogin", user.Login);
+                CrossSettings.Current.AddOrUpdateValue("UserPassword", user.Password);
                 await authPage.Navigation.PushModalAsync(new MainPage());
             }
         }
