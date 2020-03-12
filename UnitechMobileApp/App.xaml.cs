@@ -1,4 +1,6 @@
-﻿using System;
+﻿using ClientApi;
+using Plugin.Settings;
+using System;
 using UnitechMobileApp.Views;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
@@ -16,6 +18,13 @@ namespace UnitechMobileApp
 
         protected override void OnStart()
         {
+            //var login = CrossSettings.Current.GetValueOrDefault("UserLogin", null);
+            //var pass = CrossSettings.Current.GetValueOrDefault("UserPassword", null);
+
+            //if (login != null && pass != null)
+            //{
+                
+            //}
         }
 
         protected override void OnSleep()
