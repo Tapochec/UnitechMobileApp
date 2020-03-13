@@ -56,7 +56,6 @@ namespace UnitechMobileApp.Views
 
             if (result)
             {
-                //var o = ScheduleConverter.JsonToLessons(Client.Schedule());
                 Navigation.PushModalAsync(new MainPage());
             }
             else
