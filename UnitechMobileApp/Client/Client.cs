@@ -1,4 +1,5 @@
-﻿using System.IO;
+﻿using System;
+using System.IO;
 using System.Net;
 
 namespace ClientApi
@@ -74,7 +75,7 @@ namespace ClientApi
         }
 
         /// <summary>
-        /// Метод берет расписание залогиненного пользователя с API unitech-mo
+        /// Метод берет расписание этой недели залогиненного пользователя с API unitech-mo
         /// </summary>
         /// <returns>Json с расписанием</returns>
         static public string Schedule()
@@ -83,6 +84,29 @@ namespace ClientApi
             request.CookieContainer = cookies;
 
             return FillRequest(request);
+        }
+
+        /// <summary>
+        /// Метод берет расписание залогиненного пользователя с выбранной недели через API unitech-mo
+        /// </summary>
+        /// <returns>Json с расписанием</returns>
+        static public string Schedule(DateTime begdate, DateTime enddate, out bool sucses)
+        {
+            sucses = false;
+            string result = null;
+
+            if ((begdate.DayOfWeek == DayOfWeek.Monday && enddate.DayOfWeek == DayOfWeek.Sunday) 
+                && ((enddate - begdate).TotalDays == 6))
+            {
+                sucses = true;
+
+                HttpWebRequest request = (HttpWebRequest)HttpWebRequest.Create($"{domain}&query=SCHEDULE&d={begdate.ToShortDateString()}-{enddate.ToShortDateString()}");
+                request.CookieContainer = cookies;
+                
+                result = FillRequest(request);
+            }
+
+            return result;
         }
 
         /// <summary>
