@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 using UnitechMobileApp.ConnectionHelper;
+using TimeTable;
 
 namespace UnitechMobileApp.Views
 {
@@ -56,6 +57,7 @@ namespace UnitechMobileApp.Views
 
             if (result)
             {
+                //var o = ScheduleConverter.JsonToLessons(Client.Schedule());
                 Navigation.PushModalAsync(new MainPage());
             }
             else
