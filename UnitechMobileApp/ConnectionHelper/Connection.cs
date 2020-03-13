@@ -20,7 +20,7 @@ namespace UnitechMobileApp.ConnectionHelper
                 CrossConnectivity.Current.ConnectionTypes != null &&
                 CrossConnectivity.Current.IsConnected)                
             {                 
-                result =  await CrossConnectivity.Current.IsRemoteReachable("https://ies.unitech-mo.ru/");
+                result =  await CrossConnectivity.Current.IsRemoteReachable(host);
             }
             return result;
         }
