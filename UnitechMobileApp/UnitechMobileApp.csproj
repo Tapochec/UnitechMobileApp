@@ -40,6 +40,9 @@
     <EmbeddedResource Update="mvvm\Schedule\ScheduleControls\AccordionView.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
+    <EmbeddedResource Update="mvvm\Schedule\ScheduleControls\LessonsGrid.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
     <EmbeddedResource Update="mvvm\Schedule\SchedulePage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>

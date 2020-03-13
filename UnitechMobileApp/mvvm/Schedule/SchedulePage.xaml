@@ -9,13 +9,7 @@
              Title="Расписание">
     <ContentPage.Content>
         <ScrollView>
-            <StackLayout BackgroundColor="Gray" Spacing="2">
-
-                <controls:AccordionView Title="Понедельник"/>
-                <!--<controls:AccordionView Title="Вторник"/>
-                <controls:AccordionView Title="Среда"/>-->
-
-            </StackLayout>
+            <controls:LessonsGrid/>
         </ScrollView>
     </ContentPage.Content>
 </ContentPage>
