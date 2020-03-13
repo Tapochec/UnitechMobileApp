@@ -5,7 +5,6 @@ using System.Threading.Tasks;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 using UnitechMobileApp.ConnectionHelper;
-using TimeTable;
 
 namespace UnitechMobileApp.Views
 {
