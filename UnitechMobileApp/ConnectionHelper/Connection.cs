@@ -15,13 +15,14 @@ namespace UnitechMobileApp.ConnectionHelper
         /// <returns>true, если подключение есть, false если подключение отсутствует</returns>  
         public static async Task<bool> IsAvailable(string host = "8.8.8.8")
         {
+            bool result = false;
             if (CrossConnectivity.Current != null &&
                 CrossConnectivity.Current.ConnectionTypes != null &&
                 CrossConnectivity.Current.IsConnected)                
             {                 
-                return await CrossConnectivity.Current.IsRemoteReachable(host);
+                result =  await CrossConnectivity.Current.IsRemoteReachable("https://ies.unitech-mo.ru/");
             }
-            return false;
+            return result;
         }
     }
 }
