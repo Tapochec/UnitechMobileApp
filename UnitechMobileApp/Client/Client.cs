@@ -21,14 +21,9 @@ namespace ClientApi
                 {
                     using (StreamReader reader = new StreamReader(stream))
                     {
-                        string line = "";
-                        while ((line = reader.ReadLine()) != null)
-                        {
-                            result += line;
-                        }
+                        result = reader.ReadToEnd();
                     }
                 }
-                response.Close();
             }
             return result;
         }
@@ -55,20 +50,11 @@ namespace ClientApi
                 {
                     using (StreamReader reader = new StreamReader(stream))
                     {
-                        string line = "";
-                        while ((line = reader.ReadLine()) != null)
-                        {
-                            result += line;
-                        }
+                        result = reader.ReadToEnd();
                     }
                 }
-                response.Close();
-
-                authResult = result != "null";
             }
-
-            authResult = !(result == "null");
-
+            authResult = result != "null";
             return result;
         }
 
