@@ -3,14 +3,17 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:d="http://xamarin.com/schemas/2014/forms/design"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:controls="clr-namespace:UnitechMobileApp.mvvm.Schedule.ScheduleControls"
              mc:Ignorable="d"
              x:Class="UnitechMobileApp.Views.SchedulePage"
              Title="Расписание">
     <ContentPage.Content>
-        <StackLayout>
-            <Label Text="Расписание"
-                VerticalOptions="CenterAndExpand" 
-                HorizontalOptions="CenterAndExpand" />
-        </StackLayout>
+        <ScrollView>
+            <StackLayout>
+
+                <controls:AccordionsGrid/>
+
+            </StackLayout>
+        </ScrollView>
     </ContentPage.Content>
 </ContentPage>
