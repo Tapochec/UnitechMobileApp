@@ -2,12 +2,13 @@
 using System.IO;
 using System.Net;
 
-namespace ClientApi
+namespace UnitechMobileApp.Model
 {
-    class Client
+    public static class Client
     {
         static string domain = "https://ies.unitech-mo.ru/api?token=e78a4a9c0b16dd06b0ebc4748345a144";
         static CookieContainer cookies = null;
+        public static IUser User { get; private set; }
 
         /// <summary>
         /// метод выполняет request и возвращает строку полученную из него
@@ -36,7 +37,7 @@ namespace ClientApi
         /// <param name="login"></param>
         /// <param name="password"></param>
         /// <returns> Json строку при удачной аутентификации и "null" при неудаче</returns>
-        static public string LogIn(string login, string password, out bool authResult)
+        static public string Auth(string login, string password, out bool authResult)
         {
             HttpWebRequest request = (HttpWebRequest)HttpWebRequest.Create($"{domain}&query=AUTH&login={login}&password={password}");
             request.CookieContainer = new CookieContainer();
@@ -56,6 +57,18 @@ namespace ClientApi
                 }
             }
             authResult = result != "null";
+
+            // TODO: пересмотреть механизм определения типа юзера
+            if (authResult)
+            {
+                // Студент
+                if (result.Contains("\"user_type\":\"2\""))
+                    User = new StudentBehavior();
+                // Преподователь
+                else
+                    User = new TeacherBehavior();
+            }
+
             return result;
         }
 

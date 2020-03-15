@@ -26,7 +26,7 @@ namespace UnitechMobileApp.ScheduleHelper
         /// </summary>
         /// <param name="scheduleRawData">Json строка расписания</param>
         /// <returns>Словарь, где Key - номер дня, Value - список занятий</returns>
-        public static Dictionary<int, List<ScheduleLesson>> JsonToLessons(string scheduleRawData)
+        public static Dictionary<int, List<ScheduleLesson>> JsonToShedule(string scheduleRawData)
         {
             ScheduleDataTmp loadedJson = JsonConvert.DeserializeObject<ScheduleDataTmp>(scheduleRawData);
 

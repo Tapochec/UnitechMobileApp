@@ -1,10 +1,8 @@
-﻿using ClientApi;
-using Plugin.Connectivity;
-using Plugin.Settings;
-using System.Threading.Tasks;
+﻿using Plugin.Settings;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 using UnitechMobileApp.ConnectionHelper;
+using UnitechMobileApp.Model;
 
 namespace UnitechMobileApp.Views
 {
@@ -52,7 +50,7 @@ namespace UnitechMobileApp.Views
             var pass = CrossSettings.Current.GetValueOrDefault("UserPassword", null);
 
             bool result;
-            Client.LogIn(login, pass, out result);
+            Client.Auth(login, pass, out result);
 
             if (result)
             {
