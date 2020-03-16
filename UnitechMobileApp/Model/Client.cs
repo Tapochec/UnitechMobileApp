@@ -8,7 +8,7 @@ namespace UnitechMobileApp.Model
     {
         static string domain = "https://ies.unitech-mo.ru/api?token=e78a4a9c0b16dd06b0ebc4748345a144";
         static CookieContainer cookies = null;
-        public static UserBase User { get; private set; }
+        private static bool isFirstAuth = true;
 
         /// <summary>
         /// метод выполняет request и возвращает строку полученную из него
@@ -59,14 +59,17 @@ namespace UnitechMobileApp.Model
             authResult = result != "null";
 
             // TODO: пересмотреть механизм определения типа юзера
-            if (authResult)
+            if (isFirstAuth)
             {
-                // Студент
-                if (result.Contains("\"user_type\":\"2\""))
-                    User = new StudentBehavior();
-                // Преподователь
-                else
-                    User = new TeacherBehavior();
+                if (authResult)
+                {
+                    if (result.Contains("\"user_type\":\"2\""))
+                        Workspace.SetUserActive(UserType.Student);
+                    else
+                        Workspace.SetUserActive(UserType.Teacher);
+                }
+
+                isFirstAuth = false;
             }
 
             return result;

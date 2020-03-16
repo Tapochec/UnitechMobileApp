@@ -5,7 +5,7 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              xmlns:controls="clr-namespace:UnitechMobileApp.mvvm.Schedule.ScheduleControls"
              mc:Ignorable="d"
-             x:Class="UnitechMobileApp.Views.SchedulePage"
+             x:Class="UnitechMobileApp.mvvm.Schedule.SchedulePage"
              Title="Расписание">
     <ContentPage.Content>
         <ScrollView>

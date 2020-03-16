@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
-namespace UnitechMobileApp.Views
+namespace UnitechMobileApp.mvvm.Schedule
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class SchedulePage : ContentPage
@@ -15,6 +15,8 @@ namespace UnitechMobileApp.Views
         public SchedulePage()
         {
             InitializeComponent();
+
+            BindingContext = new SchedulePageViewModel();
         }
     }
 }

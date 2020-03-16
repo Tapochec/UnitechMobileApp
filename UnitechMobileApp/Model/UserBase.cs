@@ -15,7 +15,13 @@ namespace UnitechMobileApp.Model
 
         public virtual Dictionary<int, List<ScheduleLesson>> GetSchedule()
         {
-            throw new NotImplementedException();
+            return null;
         }
+    }
+
+    public enum UserType
+    {
+        Student,
+        Teacher
     }
 }
