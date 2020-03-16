@@ -1,11 +1,10 @@
-﻿using ClientApi;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Text;
 
 namespace UnitechMobileApp.mvvm.Schedule
 {
-    class SchedulePageViewModel
+    public class SchedulePageViewModel
     {
         public SchedulePageViewModel()
         {
@@ -14,7 +13,7 @@ namespace UnitechMobileApp.mvvm.Schedule
 
         public void Load()
         {
-            
+
         }
     }
 }

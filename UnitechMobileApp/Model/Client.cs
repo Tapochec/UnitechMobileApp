@@ -1,12 +1,14 @@
-﻿using System.IO;
+﻿using System;
+using System.IO;
 using System.Net;
 
-namespace ClientApi
+namespace UnitechMobileApp.Model
 {
-    class Client
+    public static class Client
     {
         static string domain = "https://ies.unitech-mo.ru/api?token=e78a4a9c0b16dd06b0ebc4748345a144";
         static CookieContainer cookies = null;
+        public static IUser User { get; private set; }
 
         /// <summary>
         /// метод выполняет request и возвращает строку полученную из него
@@ -35,7 +37,7 @@ namespace ClientApi
         /// <param name="login"></param>
         /// <param name="password"></param>
         /// <returns> Json строку при удачной аутентификации и "null" при неудаче</returns>
-        static public string LogIn(string login, string password, out bool authResult)
+        static public string Auth(string login, string password, out bool authResult)
         {
             HttpWebRequest request = (HttpWebRequest)HttpWebRequest.Create($"{domain}&query=AUTH&login={login}&password={password}");
             request.CookieContainer = new CookieContainer();
@@ -55,6 +57,18 @@ namespace ClientApi
                 }
             }
             authResult = result != "null";
+
+            // TODO: пересмотреть механизм определения типа юзера
+            if (authResult)
+            {
+                // Студент
+                if (result.Contains("\"user_type\":\"2\""))
+                    User = new StudentBehavior();
+                // Преподователь
+                else
+                    User = new TeacherBehavior();
+            }
+
             return result;
         }
 
@@ -74,7 +88,7 @@ namespace ClientApi
         }
 
         /// <summary>
-        /// Метод берет расписание залогиненного пользователя с API unitech-mo
+        /// Метод берет расписание этой недели залогиненного пользователя с API unitech-mo
         /// </summary>
         /// <returns>Json с расписанием</returns>
         static public string Schedule()
@@ -83,6 +97,29 @@ namespace ClientApi
             request.CookieContainer = cookies;
 
             return FillRequest(request);
+        }
+
+        /// <summary>
+        /// Метод берет расписание залогиненного пользователя с выбранной недели через API unitech-mo
+        /// </summary>
+        /// <returns>Json с расписанием</returns>
+        static public string Schedule(DateTime begdate, DateTime enddate, out bool sucses)
+        {
+            sucses = false;
+            string result = null;
+
+            if ((begdate.DayOfWeek == DayOfWeek.Monday && enddate.DayOfWeek == DayOfWeek.Sunday) 
+                && ((enddate - begdate).TotalDays == 6))
+            {
+                sucses = true;
+
+                HttpWebRequest request = (HttpWebRequest)HttpWebRequest.Create($"{domain}&query=SCHEDULE&d={begdate.ToShortDateString()}-{enddate.ToShortDateString()}");
+                request.CookieContainer = cookies;
+                
+                result = FillRequest(request);
+            }
+
+            return result;
         }
 
         /// <summary>

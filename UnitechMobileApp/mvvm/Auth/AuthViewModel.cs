@@ -1,7 +1,7 @@
-﻿using ClientApi;
-using Plugin.Settings;
+﻿using Plugin.Settings;
 using System.ComponentModel;
 using System.Windows.Input;
+using UnitechMobileApp.Model;
 using UnitechMobileApp.Models;
 using UnitechMobileApp.Views;
 using Xamarin.Forms;
@@ -27,7 +27,7 @@ namespace UnitechMobileApp.ViewModels
         {
             bool result;
 
-            Client.LogIn(user.Login, user.Password, out result);
+            Client.Auth(user.Login, user.Password, out result);
 
             authPage.ShowAuthResultMessage(result);
 

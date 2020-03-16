@@ -13,15 +13,16 @@ namespace UnitechMobileApp.ConnectionHelper
         /// </summary>
         /// <param name="host">Адрес хоста, соединение к которому нужно проверить (по умолчанию пингует DNS-сервер Google)</param>
         /// <returns>true, если подключение есть, false если подключение отсутствует</returns>  
-        public static async Task<bool> IsAvailable(string host = "8.8.8.8")
+        public static async Task<bool> IsAvailable(string host = "https://ies.unitech-mo.ru/")
         {
+            bool result = false;
             if (CrossConnectivity.Current != null &&
                 CrossConnectivity.Current.ConnectionTypes != null &&
                 CrossConnectivity.Current.IsConnected)                
             {                 
-                return await CrossConnectivity.Current.IsRemoteReachable(host);
+                result =  await CrossConnectivity.Current.IsRemoteReachable(host);
             }
-            return false;
+            return result;
         }
     }
 }

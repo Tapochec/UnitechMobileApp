@@ -9,7 +9,11 @@
              Title="Расписание">
     <ContentPage.Content>
         <ScrollView>
-            <controls:LessonsGrid/>
+            <StackLayout>
+
+                <controls:AccordionsGrid/>
+
+            </StackLayout>
         </ScrollView>
     </ContentPage.Content>
 </ContentPage>

@@ -1,12 +1,8 @@
 ﻿using System.ComponentModel;
 using System.Collections.Generic;
-using System.Text;
 using UnitechMobileApp.Models;
 using UnitechMobileApp.Views;
-using System.Windows.Input;
-using Xamarin.Forms;
-using System.Diagnostics;
-using ClientApi;
+using UnitechMobileApp.Model;
 
 namespace UnitechMobileApp.ViewModels
 {

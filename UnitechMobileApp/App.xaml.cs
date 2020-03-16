@@ -1,9 +1,5 @@
-﻿using ClientApi;
-using Plugin.Settings;
-using System;
-using UnitechMobileApp.Views;
+﻿using UnitechMobileApp.Views;
 using Xamarin.Forms;
-using Xamarin.Forms.Xaml;
 
 namespace UnitechMobileApp
 {
