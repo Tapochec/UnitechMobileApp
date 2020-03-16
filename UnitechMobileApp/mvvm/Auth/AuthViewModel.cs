@@ -10,7 +10,7 @@ namespace UnitechMobileApp.ViewModels
 {
     class AuthViewModel : INotifyPropertyChanged
     {
-        private User user;
+        private UserBase user;
         public ICommand AuthCommand { get; }
         private readonly AuthPage authPage;
 
@@ -18,7 +18,7 @@ namespace UnitechMobileApp.ViewModels
 
         public AuthViewModel(AuthPage authPage)
         {
-            user = new User();
+
             AuthCommand = new Command(Auth);
             this.authPage = authPage;
         }

@@ -5,11 +5,8 @@ using UnitechMobileApp.ScheduleHelper;
 
 namespace UnitechMobileApp.Model
 {
-    public class TeacherBehavior : IUser
+    public class TeacherBehavior : UserBase
     {
-        public Dictionary<int, List<ScheduleLesson>> GetSchedule()
-        {
-            throw new NotImplementedException();
-        }
+
     }
 }
