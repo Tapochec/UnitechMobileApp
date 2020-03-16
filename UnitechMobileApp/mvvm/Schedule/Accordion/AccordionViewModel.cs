@@ -42,6 +42,7 @@ namespace UnitechMobileApp.mvvm.Schedule.Accordion
         {
             get { return lesson4; }
             set { SetProperty(ref lesson4, value); }
+        }
 
         private HtmlWebViewSource lesson5;
         public HtmlWebViewSource Lesson5
