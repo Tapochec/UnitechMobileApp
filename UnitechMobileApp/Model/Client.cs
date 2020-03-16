@@ -58,16 +58,10 @@ namespace UnitechMobileApp.Model
             }
             authResult = result != "null";
 
-            // TODO: пересмотреть механизм определения типа юзера
             if (isFirstAuth)
             {
                 if (authResult)
-                {
-                    if (result.Contains("\"user_type\":\"2\""))
-                        Workspace.SetUserActive(UserType.Student);
-                    else
-                        Workspace.SetUserActive(UserType.Teacher);
-                }
+                    Workspace.SetUserActive(result);
 
                 isFirstAuth = false;
             }

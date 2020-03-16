@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Newtonsoft.Json.Linq;
+using System;
 using System.Collections.Generic;
 using System.Text;
 using UnitechMobileApp.ScheduleHelper;
@@ -12,9 +13,15 @@ namespace UnitechMobileApp.Model
     {
         public static UserBase ActiveUser { get; private set; }
 
-        public static void SetUserActive(UserType userType)
+        /// <summary>
+        /// Определяет, какой пользователь авторизовался и делает его "активным"
+        /// </summary>
+        /// <param name="json">Результат выполнения AUTH</param>
+        public static void SetUserActive(string json)
         {
-            if (userType == UserType.Student)
+            int userType = int.Parse(JObject.Parse(json)["user_type"].ToString());
+
+            if (userType == 2)
             {
                 ActiveUser = new StudentBehavior();
             }
