@@ -52,11 +52,6 @@ namespace UnitechMobileApp.mvvm.Schedule.Accordion
             });
         }
 
-        public void Fill()
-        {
-            
-        }
-
         private void ImageTap()
         {
             if (!CanTap)
