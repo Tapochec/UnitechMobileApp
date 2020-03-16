@@ -4,7 +4,7 @@
              xmlns:d="http://xamarin.com/schemas/2014/forms/design"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              mc:Ignorable="d"
-             x:Class="UnitechMobileApp.mvvm.Schedule.ScheduleControls.AccordionView">
+             x:Class="UnitechMobileApp.mvvm.Schedule.Accordion.Accordion">
     <ContentView.Resources>
 
         <!--<Style TargetType="WebView">

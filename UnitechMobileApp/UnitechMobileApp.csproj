@@ -22,6 +22,9 @@
     <Compile Update="mvvm\Load\LoadPage.xaml.cs">
       <DependentUpon>LoadPage.xaml</DependentUpon>
     </Compile>
+    <Compile Update="mvvm\Schedule\Accordion\Accordion.xaml.cs">
+      <DependentUpon>Accordion.xaml</DependentUpon>
+    </Compile>
   </ItemGroup>
 
   <ItemGroup>
@@ -40,7 +43,7 @@
     <EmbeddedResource Update="mvvm\Schedule\ScheduleControls\AccordionsGrid.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
-    <EmbeddedResource Update="mvvm\Schedule\ScheduleControls\AccordionView.xaml">
+    <EmbeddedResource Update="mvvm\Schedule\Accordion\Accordion.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
     <EmbeddedResource Update="mvvm\Schedule\SchedulePage.xaml">

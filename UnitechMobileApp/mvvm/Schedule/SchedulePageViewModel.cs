@@ -14,7 +14,7 @@ namespace UnitechMobileApp.mvvm.Schedule
 
         public void Load()
         {
-            Workspace.ActiveUser.GetSchedule();
+            //Workspace.ActiveUser.GetSchedule();
         }
     }
 }

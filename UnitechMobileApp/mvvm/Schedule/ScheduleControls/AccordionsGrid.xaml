@@ -3,18 +3,18 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:d="http://xamarin.com/schemas/2014/forms/design"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-             xmlns:controls="clr-namespace:UnitechMobileApp.mvvm.Schedule.ScheduleControls"
+             xmlns:controls="clr-namespace:UnitechMobileApp.mvvm.Schedule.Accordion"
              mc:Ignorable="d"
              x:Class="UnitechMobileApp.mvvm.Schedule.ScheduleControls.AccordionsGrid">
     <ContentView.Content>
         <StackLayout BackgroundColor="Gray" Spacing="2">
 
-            <controls:AccordionView Title="Понедельник"/>
-            <controls:AccordionView Title="Вторник"/>
-            <controls:AccordionView Title="Среда"/>
-            <controls:AccordionView Title="Четверг"/>
-            <controls:AccordionView Title="Пятница"/>
-            <controls:AccordionView Title="Суббота"/>
+            <controls:Accordion Title="Понедельник"/>
+            <controls:Accordion Title="Вторник"/>
+            <controls:Accordion Title="Среда"/>
+            <controls:Accordion Title="Четверг"/>
+            <controls:Accordion Title="Пятница"/>
+            <controls:Accordion Title="Суббота"/>
 
         </StackLayout>
     </ContentView.Content>

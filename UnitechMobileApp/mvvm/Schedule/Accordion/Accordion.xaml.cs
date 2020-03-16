@@ -3,21 +3,20 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
-namespace UnitechMobileApp.mvvm.Schedule.ScheduleControls
+namespace UnitechMobileApp.mvvm.Schedule.Accordion
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
-    public partial class AccordionView : ContentView
+    public partial class Accordion : ContentView
     {
         #region Title property
 
         public static readonly BindableProperty TitleBindableProperty = BindableProperty.Create(
             nameof(Title),
             typeof(string),
-            typeof(AccordionView),
+            typeof(Accordion),
             default(string));
 
         public string Title
@@ -40,7 +39,7 @@ namespace UnitechMobileApp.mvvm.Schedule.ScheduleControls
         public bool Expanded { get; private set; } = false;
 
 
-        public AccordionView()
+        public Accordion()
         {
             InitializeComponent();
 
@@ -51,22 +50,11 @@ namespace UnitechMobileApp.mvvm.Schedule.ScheduleControls
                 Command = new Command(ImageTap),
                 NumberOfTapsRequired = 1
             });
-
-            //List<string> lessons = new List<string>();
-            //for (int i = 0; i < 8; i++)
-            //    lessons.Add(@"<strong>ТО-18-1 (ан-1)</strong>, Второй корпус, аудитория 2307 (Бондаренко Тамара Нестеровна - Иностранный язык (второй, профессиональный) - Практическое занятие)<hr/> <strong>ТО-18-1 (ан-2)</strong>, Второй корпус, аудитория 2401 (Когтева Елена Викторовна - Иностранный язык (второй, профессиональный) - Практическое занятие)");
-
-            //Fill(lessons);
         }
 
-        public void Fill(List<string> lessons)
+        public void Fill()
         {
-            for (int i = 0; i < 8; i++)
-            {
-                var htmlSource = new HtmlWebViewSource();
-                htmlSource.Html = lessons[i];
-                (ContentGrid.Children[i] as WebView).Source = htmlSource;
-            }
+            
         }
 
         private void ImageTap()
