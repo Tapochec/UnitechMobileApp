@@ -8,7 +8,7 @@ namespace UnitechMobileApp.Model
     {
         static string domain = "https://ies.unitech-mo.ru/api?token=e78a4a9c0b16dd06b0ebc4748345a144";
         static CookieContainer cookies = null;
-        public static IUser User { get; private set; }
+        public static UserBase User { get; private set; }
 
         /// <summary>
         /// метод выполняет request и возвращает строку полученную из него
