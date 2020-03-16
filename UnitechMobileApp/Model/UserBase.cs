@@ -15,13 +15,7 @@ namespace UnitechMobileApp.Model
 
         public virtual Dictionary<int, List<ScheduleLesson>> GetSchedule()
         {
-            return null;
+            return ScheduleConverter.JsonToShedule(Client.Schedule());
         }
-    }
-
-    public enum UserType
-    {
-        Student,
-        Teacher
     }
 }

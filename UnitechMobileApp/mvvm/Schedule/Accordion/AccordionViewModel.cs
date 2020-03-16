@@ -93,6 +93,9 @@ namespace UnitechMobileApp.mvvm.Schedule.Accordion
 
         private HtmlWebViewSource GetHtml(int index)
         {
+            if (index >= items.Count)
+                return null;
+
             var source = new HtmlWebViewSource();
             source.Html = items[index].Description;
             return source;

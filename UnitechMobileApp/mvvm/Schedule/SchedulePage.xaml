@@ -12,7 +12,7 @@
             <StackLayout>
 
                 <!-- Расписание на все дни -->
-                <StackLayout BackgroundColor="Gray" Spacing="2">
+                <StackLayout x:Name="Accordions" BackgroundColor="Gray" Spacing="2">
                     <controls:Accordion Title="Понедельник"/>
                     <controls:Accordion Title="Вторник"/>
                     <controls:Accordion Title="Среда"/>

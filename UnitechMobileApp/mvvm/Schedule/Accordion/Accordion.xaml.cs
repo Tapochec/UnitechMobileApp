@@ -50,7 +50,11 @@ namespace UnitechMobileApp.mvvm.Schedule.Accordion
                 Command = new Command(ImageTap),
                 NumberOfTapsRequired = 1
             });
+
+            BindingContext = new AccordionViewModel();
         }
+
+        public AccordionViewModel ViewModel => BindingContext as AccordionViewModel;
 
         private void ImageTap()
         {
