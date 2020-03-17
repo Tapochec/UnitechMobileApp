@@ -97,7 +97,7 @@ namespace UnitechMobileApp.mvvm.Schedule.Accordion
                 return null;
 
             var source = new HtmlWebViewSource();
-            source.Html = items[index].Description;
+            source.Html = items[index].Description.Replace("&lt;", "<").Replace("&gt;", ">");
             return source;
         }
     }
