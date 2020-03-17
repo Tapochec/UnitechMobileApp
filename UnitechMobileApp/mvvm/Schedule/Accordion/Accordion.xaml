@@ -3,6 +3,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:d="http://xamarin.com/schemas/2014/forms/design"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:local="clr-namespace:UnitechMobileApp.mvvm.Schedule.Accordion"
              mc:Ignorable="d"
              x:Class="UnitechMobileApp.mvvm.Schedule.Accordion.Accordion">
     <ContentView.Resources>
@@ -36,14 +37,22 @@
             </Grid>
 
             <StackLayout x:Name="ContentStackLayout" BackgroundColor="LightGray" IsVisible="False" Spacing="1">
-                <WebView Source="{Binding Path=Lesson1}"/>
+                <!--<WebView Source="{Binding Path=Lesson1}"/>
                 <WebView Grid.Row="1" Source="{Binding Path=Lesson2}"/>
                 <WebView Grid.Row="2" Source="{Binding Path=Lesson3}"/>
                 <WebView Grid.Row="3" Source="{Binding Path=Lesson4}"/>
                 <WebView Grid.Row="4" Source="{Binding Path=Lesson5}"/>
                 <WebView Grid.Row="5" Source="{Binding Path=Lesson6}"/>
                 <WebView Grid.Row="6" Source="{Binding Path=Lesson7}"/>
-                <WebView Grid.Row="7" Source="{Binding Path=Lesson8}"/>
+                <WebView Grid.Row="7" Source="{Binding Path=Lesson8}"/>-->
+                <!--<local:AccordionItem Grid.Row="0" Number="1" WebViewSource="{Binding Path=Lesson1}"/>
+                <local:AccordionItem Grid.Row="1" Number="2" WebViewSource="{Binding Path=Lesson2}"/>
+                <local:AccordionItem Grid.Row="2" Number="3" WebViewSource="{Binding Path=Lesson3}"/>
+                <local:AccordionItem Grid.Row="3" Number="4" WebViewSource="{Binding Path=Lesson4}"/>
+                <local:AccordionItem Grid.Row="4" Number="5" WebViewSource="{Binding Path=Lesson5}"/>
+                <local:AccordionItem Grid.Row="5" Number="6" WebViewSource="{Binding Path=Lesson6}"/>
+                <local:AccordionItem Grid.Row="6" Number="7" WebViewSource="{Binding Path=Lesson7}"/>
+                <local:AccordionItem Grid.Row="7" Number="8" WebViewSource="{Binding Path=Lesson8}"/>-->
             </StackLayout>
 
         </StackLayout>
