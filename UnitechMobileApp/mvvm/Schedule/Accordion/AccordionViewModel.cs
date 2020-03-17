@@ -80,24 +80,27 @@ namespace UnitechMobileApp.mvvm.Schedule.Accordion
             set
             {
                 items = value;
-                Lesson1 = GetHtml(0);
-                Lesson2 = GetHtml(1);
-                Lesson3 = GetHtml(2);
-                Lesson4 = GetHtml(3);
-                Lesson5 = GetHtml(4);
-                Lesson6 = GetHtml(5);
-                Lesson7 = GetHtml(6);
-                Lesson8 = GetHtml(7);
+                Lesson1 = GetHtml(1);
+                Lesson2 = GetHtml(2);
+                Lesson3 = GetHtml(3);
+                Lesson4 = GetHtml(4);
+                Lesson5 = GetHtml(5);
+                Lesson6 = GetHtml(6);
+                Lesson7 = GetHtml(7);
+                Lesson8 = GetHtml(8);
             }
         }
 
-        private HtmlWebViewSource GetHtml(int index)
+        // number - номер пары
+        private HtmlWebViewSource GetHtml(int number)
         {
-            if (index >= items.Count)
+            ScheduleLesson item = items.Find(lesson => lesson.Number == number);
+
+            if (item == null)
                 return null;
 
             var source = new HtmlWebViewSource();
-            source.Html = items[index].Description.Replace("&lt;", "<").Replace("&gt;", ">");
+            source.Html = item.Description.Replace("&lt;", "<").Replace("&gt;", ">");
             return source;
         }
     }
