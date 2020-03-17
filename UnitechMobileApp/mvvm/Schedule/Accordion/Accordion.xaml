@@ -35,18 +35,7 @@
 
             </Grid>
 
-            <Grid x:Name="ContentGrid" BackgroundColor="LightGray" Padding="1" RowSpacing="2">
-                <Grid.RowDefinitions>
-                    <RowDefinition Height="*"/>
-                    <RowDefinition Height="*"/>
-                    <RowDefinition Height="*"/>
-                    <RowDefinition Height="*"/>
-                    <RowDefinition Height="*"/>
-                    <RowDefinition Height="*"/>
-                    <RowDefinition Height="*"/>
-                    <RowDefinition Height="*"/>
-                </Grid.RowDefinitions>
-
+            <StackLayout x:Name="ContentStackLayout" BackgroundColor="LightGray" IsVisible="False" Spacing="1">
                 <WebView Source="{Binding Path=Lesson1}"/>
                 <WebView Grid.Row="1" Source="{Binding Path=Lesson2}"/>
                 <WebView Grid.Row="2" Source="{Binding Path=Lesson3}"/>
@@ -55,8 +44,7 @@
                 <WebView Grid.Row="5" Source="{Binding Path=Lesson6}"/>
                 <WebView Grid.Row="6" Source="{Binding Path=Lesson7}"/>
                 <WebView Grid.Row="7" Source="{Binding Path=Lesson8}"/>
-
-            </Grid>
+            </StackLayout>
 
         </StackLayout>
     </ContentView.Content>
