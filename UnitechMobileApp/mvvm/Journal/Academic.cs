@@ -6,15 +6,8 @@ using System.Text;
 
 namespace UnitechMobileApp.Models
 {
-    class Academic
+    public class AcademicData
     {
-        public string Title {
-            get{
-                return $"{Semester}\t{SubjText}";
-            }
-        }
-
-
         public string SubjText { get; set; }
 
         public int Semester { get; set; }
@@ -32,11 +25,48 @@ namespace UnitechMobileApp.Models
 
         public string tutor { get; set; }
         public string lesson { get; set; }
-
-        public static List<Academic> JsonToListAcademics(string json) {
-            List<Academic> result = JsonConvert.DeserializeObject<List<Academic>>(json);
-            return result;
-        }
-
     }
+
+    public interface IAcademic
+    {
+        string Title { get; }
+        string Detail { get; }
+        AcademicData Data { get; set; }
+    }
+
+    public class TeacherAcademic : IAcademic {
+        public string Title { 
+            get 
+            {
+                return $"{Data.Semester}\t{Data.SubjText}";
+            }
+        }
+        public string Detail { 
+            get 
+            {
+                return Data.GroupText;
+            } 
+        }
+        public AcademicData Data { get; set; }
+    }
+
+    public class StudentAcademic : IAcademic
+    {
+        public string Title
+        {
+            get
+            {
+                return $"{Data.Semester}\t{Data.SubjText}";
+            }
+        }
+        public string Detail
+        {
+            get
+            {
+                return Data.tutor;
+            }
+        }
+        public AcademicData Data { get; set; }
+    }
+
 }

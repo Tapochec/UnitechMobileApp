@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 using UnitechMobileApp.ScheduleHelper;
+using UnitechMobileApp.Models;
 
 namespace UnitechMobileApp.Model
 {
@@ -17,6 +18,8 @@ namespace UnitechMobileApp.Model
         {
             return null;
         }
+
+        abstract public List<IAcademic> JsonToListAcademics(string json);
     }
 
     public enum UserType

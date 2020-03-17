@@ -8,14 +8,14 @@ namespace UnitechMobileApp.ViewModels
 {
     class JournalViewModel : INotifyPropertyChanged
     {
-        public List<Academic> Academics { get; private set; }
+        public List<IAcademic> Academics { get; private set; }
 
         private JournalPage journalPage;
 
         public event PropertyChangedEventHandler PropertyChanged;
 
         public void Update() {
-            Academics = Academic.JsonToListAcademics(Client.StudentPlan());
+            Academics = Workspace.ActiveUser.JsonToListAcademics(Client.StudentPlan());
 
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Academics"));
         }
