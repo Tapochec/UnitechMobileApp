@@ -3,6 +3,7 @@ using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 using UnitechMobileApp.ConnectionHelper;
 using UnitechMobileApp.Model;
+using UnitechMobileApp.DependencyServices;
 
 namespace UnitechMobileApp.Views
 {
@@ -67,17 +68,21 @@ namespace UnitechMobileApp.Views
         }
 
         /// <summary>
-        /// Выводит на экран устройства сообщение об ошибке подключения и предлагает повторить попытку подключения
+        /// Выводит на экран устройства сообщение об ошибке подключения и предлагает повторить попытку подключения или выйти из приложения
         /// </summary>
         async void ShowConnectionFailrueDialog()
         {
             //todo: перенести весь текст в ресурсы
-            bool tryAgain = await DisplayAlert("Ошибка", "Проверьте подключение вашего устройства к сети", "Повторить", "Отмена");
+            bool tryAgain = await DisplayAlert("Ошибка", "Проверьте подключение вашего устройства к сети", "Повторить", "Выход");
             if(tryAgain)
             {
                 TryToSignIn();
             }
-            //else ????
+            else
+            {
+                ICloseApp closer = DependencyService.Get<ICloseApp>();
+                closer.Shutdown();
+            }
         }
     }
 }
