@@ -9,11 +9,22 @@
     <ContentPage.Content>
         <ListView HorizontalOptions="CenterAndExpand" 
                   ItemsSource = "{Binding Academics}"
+                  HasUnevenRows = "true"
                   >
             <ListView.ItemTemplate>
                 <DataTemplate>
-                    <TextCell Text="{Binding Title}"
-                              Detail="{Binding Detail}"/>
+                    <ViewCell>
+                        <Grid>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="auto"/>
+                                <RowDefinition Height="*"/>
+                                <RowDefinition Height="auto"/>
+                            </Grid.RowDefinitions>
+                            <Label Grid.Row="1" Text="{Binding Title}" FontSize="Small" TextColor="#000000"/>
+                            <Label Grid.Row="2" Text="{Binding Semester}" FontSize="Micro" TextColor="#5D5D5D"/>
+                            <Label Grid.Row="3" Text="{Binding Detail}" FontSize="Micro" TextColor="#5D5D5D"/>
+                        </Grid>
+                    </ViewCell>
                 </DataTemplate>
             </ListView.ItemTemplate>
         </ListView>

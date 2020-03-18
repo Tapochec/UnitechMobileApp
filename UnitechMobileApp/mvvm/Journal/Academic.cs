@@ -29,16 +29,23 @@ namespace UnitechMobileApp.Models
 
     public interface IAcademic
     {
+        string Semester { get; }
         string Title { get; }
         string Detail { get; }
         AcademicData Data { get; set; }
     }
 
     public class TeacherAcademic : IAcademic {
+
+        public string Semester { get {
+                return $"";
+            }
+        }
+
         public string Title { 
             get 
             {
-                return $"{Data.Semester}\t{Data.SubjText}";
+                return Data.SubjText;
             }
         }
         public string Detail { 
@@ -52,11 +59,19 @@ namespace UnitechMobileApp.Models
 
     public class StudentAcademic : IAcademic
     {
+        public string Semester
+        {
+            get
+            {
+                return $"Семестр: {Data.Semester}";
+            }
+        }
+
         public string Title
         {
             get
             {
-                return $"{Data.Semester}\t{Data.SubjText}";
+                return Data.SubjText;
             }
         }
         public string Detail
