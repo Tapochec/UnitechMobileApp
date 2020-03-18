@@ -51,7 +51,7 @@ namespace UnitechMobileApp.Views
 
             bool result = false;
 
-            if (login != null && pass != null)
+            if (!string.IsNullOrEmpty(login) && !string.IsNullOrEmpty(pass))
             {
                 Client.Auth(login, pass, out result);
             }

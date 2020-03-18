@@ -10,7 +10,6 @@ namespace UnitechMobileApp.ViewModels
 {
     class AuthViewModel : INotifyPropertyChanged
     {
-        private UserBase user = new StudentBehavior{Login = "", Password = "" };
         public ICommand AuthCommand { get; }
         private readonly AuthPage authPage;
 
@@ -26,39 +25,41 @@ namespace UnitechMobileApp.ViewModels
         {
             bool result;
 
-            Client.Auth(user.Login, user.Password, out result);
+            Client.Auth(Login, Password, out result);
 
             authPage.ShowAuthResultMessage(result);
 
             if (result)
             {
-                CrossSettings.Current.AddOrUpdateValue("UserLogin", user.Login);
-                CrossSettings.Current.AddOrUpdateValue("UserPassword", user.Password);
+                CrossSettings.Current.AddOrUpdateValue("UserLogin", Login);
+                CrossSettings.Current.AddOrUpdateValue("UserPassword", Password);
                 await authPage.Navigation.PushModalAsync(new MainPage());
             }
         }
 
+        private string login;
         public string Login
         {
-            get { return user.Login; }
+            get { return login; }
             set
             {
-                if (user.Login != value)
+                if (login != value)
                 {
-                    user.Login = value;
+                    login = value;
                     OnPropertyChanged("Login");
                 }
             }
         }
 
+        private string password;
         public string Password
         {
-            get { return user.Password; }
+            get { return password; }
             set
             {
-                if (user.Password != value)
+                if (password != value)
                 {
-                    user.Password = value;
+                    password = value;
                     OnPropertyChanged("Password");
                 }
             }
