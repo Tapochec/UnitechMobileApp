@@ -42,15 +42,17 @@ namespace UnitechMobileApp.mvvm.Schedule.Accordion
         public Accordion()
         {
             InitializeComponent();
-
-            ContentGrid.IsVisible = false;
             ArrowImage.Source = ImageSource.FromFile("Arrow.png");
             ArrowImage.GestureRecognizers.Add(new TapGestureRecognizer
             {
                 Command = new Command(ImageTap),
                 NumberOfTapsRequired = 1
             });
+
+            BindingContext = new AccordionViewModel();
         }
+
+        public AccordionViewModel ViewModel => BindingContext as AccordionViewModel;
 
         private void ImageTap()
         {
@@ -73,21 +75,21 @@ namespace UnitechMobileApp.mvvm.Schedule.Accordion
         async void Close()
         {
             await Task.WhenAll(
-                ContentGrid.TranslateTo(0, -10, animationDuration),
+                ContentStackLayout.TranslateTo(0, -10, animationDuration),
                 ArrowImage.RotateTo(0, animationDuration),
-                ContentGrid.FadeTo(0, 50)
+                ContentStackLayout.FadeTo(0, 50)
                 );
-            ContentGrid.IsVisible = false;
+            ContentStackLayout.IsVisible = false;
             CanTap = true;
         }
 
         async void Open()
         {
-            ContentGrid.IsVisible = true;
+            ContentStackLayout.IsVisible = true;
             await Task.WhenAll(
-                ContentGrid.TranslateTo(0, 10, animationDuration),
+                ContentStackLayout.TranslateTo(0, 10, animationDuration),
                 ArrowImage.RotateTo(-180, animationDuration),
-                ContentGrid.FadeTo(30, 50, Easing.SinIn)
+                ContentStackLayout.FadeTo(30, 50, Easing.SinIn)
             );
             CanTap = true;
         }
