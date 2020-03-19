@@ -40,9 +40,6 @@
     <EmbeddedResource Update="mvvm\Profile\ProfilePage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
-    <EmbeddedResource Update="mvvm\Schedule\Accordion\AccordionItem.xaml">
-      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
-    </EmbeddedResource>
     <EmbeddedResource Update="mvvm\Schedule\ScheduleControls\AccordionsGrid.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>

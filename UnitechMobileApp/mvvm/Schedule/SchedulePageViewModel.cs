@@ -17,11 +17,16 @@ namespace UnitechMobileApp.mvvm.Schedule
 
         public void Load(List<AccordionViewModel> accordionVms)
         {
-            var dayLessonPairs = Workspace.ActiveUser.GetSchedule();
+            var dayLessonsPairs = Workspace.ActiveUser.GetSchedule();
 
-            foreach (KeyValuePair<int, List<ScheduleLesson>> pair in dayLessonPairs)
+            foreach (KeyValuePair<int, List<ScheduleLesson>> day in dayLessonsPairs)
             {
-                accordionVms[pair.Key - 1].Items = pair.Value;
+                List<ScheduleDisplayLesson> displayLessons = new List<ScheduleDisplayLesson>();
+                foreach (ScheduleLesson lesson in day.Value)
+                {
+                    displayLessons.Add(new ScheduleDisplayLesson(lesson.Number, lesson.Description));
+                }
+                accordionVms[day.Key - 1].Lessons = displayLessons;
             }
         }
     }
