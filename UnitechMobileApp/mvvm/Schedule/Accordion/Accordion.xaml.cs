@@ -76,21 +76,21 @@ namespace UnitechMobileApp.mvvm.Schedule.Accordion
         async void Close()
         {
             await Task.WhenAll(
-                ContentStackLayout.TranslateTo(0, -10, animationDuration),
+                ItemsContainer.TranslateTo(0, -10, animationDuration),
                 ArrowImage.RotateTo(0, animationDuration),
-                ContentStackLayout.FadeTo(0, 50)
+                ItemsContainer.FadeTo(0, 50)
                 );
-            ContentStackLayout.IsVisible = false;
+            ItemsContainer.IsVisible = false;
             CanTap = true;
         }
 
         async void Open()
         {
-            ContentStackLayout.IsVisible = true;
+            ItemsContainer.IsVisible = true;
             await Task.WhenAll(
-                ContentStackLayout.TranslateTo(0, 10, animationDuration),
+                ItemsContainer.TranslateTo(0, 10, animationDuration),
                 ArrowImage.RotateTo(-180, animationDuration),
-                ContentStackLayout.FadeTo(30, 50, Easing.SinIn)
+                ItemsContainer.FadeTo(30, 50, Easing.SinIn)
             );
             CanTap = true;
         }

@@ -9,15 +9,15 @@ namespace UnitechMobileApp.mvvm.Schedule.Accordion
     {
         public string Number { get; private set; }
 
-        public HtmlWebViewSource Desc { get; private set; }
+        public HtmlWebViewSource Description { get; private set; }
 
 
         public ScheduleDisplayLesson(int lessonNumber, string lessonDescription)
         {
             Number = lessonNumber.ToString();
 
-            Desc = new HtmlWebViewSource();
-            Desc.Html = lessonDescription.Replace("&lt;", "<").Replace("&gt;", ">");
+            Description = new HtmlWebViewSource();
+            Description.Html = lessonDescription.Replace("&lt;", "<").Replace("&gt;", ">");
         }
     }
 }
