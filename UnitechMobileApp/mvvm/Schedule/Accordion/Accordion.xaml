@@ -18,7 +18,7 @@
 
     <ContentView.Content>
         <StackLayout Spacing="-10">
-            <Grid HeightRequest="50" BackgroundColor="LightGray">
+            <Grid x:Name="HeaderGrid" HeightRequest="50" BackgroundColor="LightGray">
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition/>
                     <ColumnDefinition/>

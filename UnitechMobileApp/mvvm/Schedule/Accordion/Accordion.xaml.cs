@@ -44,9 +44,9 @@ namespace UnitechMobileApp.mvvm.Schedule.Accordion
         {
             InitializeComponent();
             ArrowImage.Source = ImageSource.FromFile("Arrow.png");
-            ArrowImage.GestureRecognizers.Add(new TapGestureRecognizer
+            HeaderGrid.GestureRecognizers.Add(new TapGestureRecognizer
             {
-                Command = new Command(ImageTap),
+                Command = new Command(OnHeaderTapped),
                 NumberOfTapsRequired = 1
             });
 
@@ -55,7 +55,7 @@ namespace UnitechMobileApp.mvvm.Schedule.Accordion
 
         public AccordionViewModel ViewModel => BindingContext as AccordionViewModel;
 
-        private void ImageTap()
+        private void OnHeaderTapped()
         {
             if (!CanTap)
                 return;
