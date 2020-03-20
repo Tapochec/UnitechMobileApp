@@ -20,7 +20,7 @@ namespace UnitechMobileApp.Model
         public static void SetUserActive(string json)
         {
             int userType = int.Parse(JObject.Parse(json)["user_type"].ToString());
-
+            int userID = int.Parse(JObject.Parse(json)["id"].ToString());
             if (userType == 2)
             {
                 ActiveUser = new StudentBehavior();
@@ -29,6 +29,7 @@ namespace UnitechMobileApp.Model
             {
                 ActiveUser = new TeacherBehavior();
             }
+            ActiveUser.id = userID;
         }
     }
 }

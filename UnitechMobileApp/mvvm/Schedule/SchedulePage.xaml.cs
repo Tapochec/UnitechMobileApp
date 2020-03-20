@@ -15,7 +15,7 @@ namespace UnitechMobileApp.mvvm.Schedule
         public SchedulePage()
         {
             InitializeComponent();
-
+            
             var vms = new List<AccordionViewModel>();
             foreach (var item in Accordions.Children)
             {

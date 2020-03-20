@@ -8,9 +8,9 @@
              Title="Профиль">
     <ContentPage.Content>
         <StackLayout>
-            <Label Text="Профиль пользователя"
-                VerticalOptions="CenterAndExpand" 
-                HorizontalOptions="CenterAndExpand" />
+            <Label Text="{Binding Source=UserData.FirstName}"/>
+            <Label Text="{Binding Source=UserData.SecondName}"/>
+            <Label Text="{Binding Source=UserData.ThirdName}"/>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

@@ -8,7 +8,7 @@ namespace UnitechMobileApp.Model
     {
         static string domain = "https://ies.unitech-mo.ru/api?token=e78a4a9c0b16dd06b0ebc4748345a144";
         static CookieContainer cookies = null;
-        private static bool isFirstAuth = true;
+        private static bool isFirstAuth = true;        
 
         /// <summary>
         /// метод выполняет request и возвращает строку полученную из него
@@ -128,6 +128,13 @@ namespace UnitechMobileApp.Model
             HttpWebRequest request = (HttpWebRequest)HttpWebRequest.Create($"{domain}&query=STUDENT_PLAN");
             request.CookieContainer = cookies;
 
+            return FillRequest(request);
+        }
+
+        static public string UserData()
+        {            
+            HttpWebRequest request = (HttpWebRequest)HttpWebRequest.Create($"{domain}&query=USER_DATA&id={Workspace.ActiveUser.id}");
+            request.CookieContainer = cookies;
             return FillRequest(request);
         }
     }
