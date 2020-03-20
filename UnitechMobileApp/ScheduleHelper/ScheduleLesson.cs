@@ -32,7 +32,7 @@ namespace UnitechMobileApp.ScheduleHelper
         /// <summary>
         /// Указывает, является ли день, к которому привязана запись, выходным
         /// </summary>
-        public bool IsHoliday = false;
+        //public bool IsHoliday = false;
     }
 
     /// <summary>

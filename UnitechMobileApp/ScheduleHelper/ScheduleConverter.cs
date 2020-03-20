@@ -59,7 +59,7 @@ namespace UnitechMobileApp.ScheduleHelper
                 List<ScheduleLesson> resList = tmpList.ConvertAll(
                     new Converter<ScheduleLessonTmp, ScheduleLesson>(TmpLessonToScheduleLesson));
 
-                resList.ForEach(l => l.IsHoliday = true);
+                //resList.ForEach(l => l.IsHoliday = true);
 
                 dayLessonsPairs.Add(i, resList);
             }
@@ -78,6 +78,22 @@ namespace UnitechMobileApp.ScheduleHelper
             };
 
             return lesson;
+        }
+
+        /// <summary>
+        /// Определяет, является день праздничным
+        /// </summary>
+        /// <param name="day">Список с занятиями одного дня</param>
+        /// <returns></returns>
+        public static bool IsHoliday(this List<ScheduleLesson> day)
+        {
+            foreach (var lesson in day)
+            {
+                if (string.IsNullOrEmpty(lesson.Note))
+                    return false;
+            }
+
+            return true;
         }
     }
 }
