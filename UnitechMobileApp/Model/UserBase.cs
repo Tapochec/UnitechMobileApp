@@ -14,7 +14,7 @@ namespace UnitechMobileApp.Model
         public string Login;
         public string Password;
 
-        public virtual Dictionary<int, List<ScheduleLesson>> GetSchedule()
+        public virtual ScheduleData GetSchedule()
         {
             return ScheduleConverter.JsonToShedule(Client.Schedule());
         }
