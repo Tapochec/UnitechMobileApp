@@ -36,6 +36,7 @@
                     <controls:Accordion Title="Четверг"/>
                     <controls:Accordion Title="Пятница"/>
                     <controls:Accordion Title="Суббота"/>
+                    <controls:Accordion Title="Воскресенье"/>
                 </StackLayout>
 
             </StackLayout>
