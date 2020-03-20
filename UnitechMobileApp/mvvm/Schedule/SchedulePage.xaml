@@ -5,14 +5,31 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              xmlns:controls="clr-namespace:UnitechMobileApp.mvvm.Schedule.Accordion"
              mc:Ignorable="d"
-             x:Class="UnitechMobileApp.mvvm.Schedule.SchedulePage"
+             x:Class="UnitechMobileApp.mvvm.Schedule.SchedulePage" d:BackgroundColor="#B7B7B7"
              Title="Расписание">
+    <ContentPage.Resources>
+
+        <Color x:Key="Accordion.BackgroundColor.Enabled">LightGray</Color>
+        <Color x:Key="Accordion.BackgroundColor.Disabled">#B7B7B7</Color>
+        
+        <Style TargetType="controls:Accordion">
+            <Style.Triggers>
+                <Trigger Property="IsEnabled" Value="false" TargetType="controls:Accordion">
+                    <Setter Property="BackgroundColor" Value="{StaticResource Accordion.BackgroundColor.Disabled}"/>
+                </Trigger>
+                <Trigger Property="IsEnabled" Value="true" TargetType="controls:Accordion">
+                    <Setter Property="BackgroundColor" Value="{StaticResource Accordion.BackgroundColor.Enabled}"/>
+                </Trigger>
+            </Style.Triggers>
+        </Style>
+        
+    </ContentPage.Resources>
     <ContentPage.Content>
         <ScrollView>
             <StackLayout>
 
                 <!-- Расписание на все дни -->
-                <StackLayout x:Name="Accordions" BackgroundColor="Gray" Spacing="2">
+                <StackLayout x:Name="Accordions" d:BackgroundColor="Gray" Spacing="2">
                     <controls:Accordion Title="Понедельник"/>
                     <controls:Accordion Title="Вторник"/>
                     <controls:Accordion Title="Среда"/>

@@ -5,20 +5,19 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              xmlns:local="clr-namespace:UnitechMobileApp.mvvm.Schedule.Accordion"
              mc:Ignorable="d"
-             x:Name="Acc"
-             x:Class="UnitechMobileApp.mvvm.Schedule.Accordion.Accordion">
+             x:Class="UnitechMobileApp.mvvm.Schedule.Accordion.Accordion"
+             
+             IsEnabled="{Binding Enabled}"
+             >
     <ContentView.Resources>
 
-        <!--<Style TargetType="WebView">
-            <Setter Property="BackgroundColor" Value="White"/>
-            <Setter Property="Margin" Value="0"/>
-        </Style>-->
-
+        
+        
     </ContentView.Resources>
 
     <ContentView.Content>
         <StackLayout Spacing="-10">
-            <Grid x:Name="HeaderGrid" HeightRequest="50" BackgroundColor="LightGray">
+            <Grid x:Name="HeaderGrid" HeightRequest="50">
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition/>
                     <ColumnDefinition/>
