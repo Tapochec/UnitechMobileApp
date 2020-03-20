@@ -1,12 +1,14 @@
 ﻿using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 
 namespace UnitechMobileApp.ScheduleHelper
 {
+#pragma warning disable CS0649
     public static class ScheduleConverter
     {
-        public class ScheduleLessonTmp
+        private class ScheduleLessonTmp
         {
             public int daynum;
             public int timenum;
@@ -15,9 +17,11 @@ namespace UnitechMobileApp.ScheduleHelper
             public string note;
         }
 
-        public class ScheduleDataTmp
+        private class ScheduleDataTmp
         {
+            // Здесь ТОЛЬКО учебные дни
             public List<ScheduleLessonTmp> data;
+            // Здесь ТОЛЬКО выходные дни, могут содержать будни
             public List<ScheduleLessonTmp> holydays;
         }
 
@@ -31,18 +35,34 @@ namespace UnitechMobileApp.ScheduleHelper
             ScheduleDataTmp loadedJson = JsonConvert.DeserializeObject<ScheduleDataTmp>(scheduleRawData);
 
             Dictionary<int, List<ScheduleLesson>> dayLessonsPairs = new Dictionary<int, List<ScheduleLesson>>();
-            // Добавление будней
-            for (int i = 1; i < 6; i++)
+
+            // Добавление учебных занятий
+            for (int i = 1; i < 7; i++)
             {
-                dayLessonsPairs.Add(i, loadedJson.data
-                    .FindAll(d => d.daynum == i)
-                    .ConvertAll(new System.Converter<ScheduleLessonTmp, ScheduleLesson>(TmpLessonToScheduleLesson)));
+                List<ScheduleLessonTmp> tmpList = loadedJson.data.FindAll(d => d.daynum == i);
+                if (tmpList.Count == 0)
+                    continue;
+
+                List<ScheduleLesson> resList = tmpList.ConvertAll(
+                    new Converter<ScheduleLessonTmp, ScheduleLesson>(TmpLessonToScheduleLesson));
+
+                dayLessonsPairs.Add(i, resList);
             }
 
-            // Добавление субботы
-            dayLessonsPairs.Add(6, loadedJson.holydays
-                .FindAll(d => d.daynum == 1)
-                .ConvertAll(new System.Converter<ScheduleLessonTmp, ScheduleLesson>(TmpLessonToScheduleLesson)));
+            // Добавление выходных записей (занятиями это сложно назвать)
+            for (int i = 1; i < 7; i++)
+            {
+                List<ScheduleLessonTmp> tmpList = loadedJson.holydays.FindAll(d => d.daynum == i);
+                if (tmpList.Count == 0)
+                    continue;
+
+                List<ScheduleLesson> resList = tmpList.ConvertAll(
+                    new Converter<ScheduleLessonTmp, ScheduleLesson>(TmpLessonToScheduleLesson));
+
+                resList.ForEach(l => l.IsHoliday = true);
+
+                dayLessonsPairs.Add(i, resList);
+            }
 
             return dayLessonsPairs;
         }
