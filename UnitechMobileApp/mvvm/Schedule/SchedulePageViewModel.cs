@@ -42,7 +42,7 @@ namespace UnitechMobileApp.mvvm.Schedule
                 List<ScheduleDisplayLesson> displayLessons = new List<ScheduleDisplayLesson>();
                 foreach (ScheduleLesson lesson in day.Value)
                 {
-                    displayLessons.Add(new ScheduleDisplayLesson(lesson.Number, lesson.Description));
+                    displayLessons.Add(new ScheduleDisplayLesson(lesson));
                 }
                 accordionViewModels[day.Key - 1].Lessons = displayLessons;
             }
