@@ -14,5 +14,24 @@ namespace UnitechMobileApp.ScheduleHelper
         public int Semester;
 
         public Dictionary<int, List<ScheduleLesson>> DayLessonsPairs;
+
+        public string GetHeaderText()
+        {
+            string result = "";
+
+            result += WeekNumber.ToString() + "-я, ";
+
+            if (WeekParity == WeekParity.Odd)
+                result += "нечётная неделя, ";
+            else if (WeekParity == WeekParity.Even)
+                result += "чётная неделя, ";
+
+            if (Semester == 1)
+                result += "осенний семестр";
+            else
+                result += "весенний семестр";
+
+            return result;
+        }
     }
 }

@@ -12,6 +12,13 @@ namespace UnitechMobileApp.mvvm.Schedule
     {
         private List<AccordionViewModel> accordionViewModels;
 
+        private string headerText;
+        public string HeaderText
+        {
+            get { return headerText; }
+            set { SetProperty(ref headerText, value); }
+        }
+
         public SchedulePageViewModel(List<AccordionViewModel> accordionVms)
         {
             accordionViewModels = accordionVms;
@@ -26,7 +33,7 @@ namespace UnitechMobileApp.mvvm.Schedule
             ScheduleData schedule = Workspace.ActiveUser.GetSchedule();
 
             // Загрузка параметров
-            // . . .
+            HeaderText = schedule.GetHeaderText();
 
             // Загрузка расписания
             var dayLessonsPairs = schedule.DayLessonsPairs;

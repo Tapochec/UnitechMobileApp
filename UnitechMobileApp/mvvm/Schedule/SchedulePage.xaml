@@ -28,6 +28,15 @@
         <ScrollView>
             <StackLayout>
 
+                <!-- Заголовок расписания, общая информация -->
+                <Label
+                    Text="{Binding HeaderText}"
+                    HorizontalTextAlignment="Center"
+                    FontSize="Medium"
+                    Margin="0, 20, 0, 20"/>
+
+                <!-- Выбор недели расписания -->
+                
                 <!-- Расписание на все дни -->
                 <StackLayout x:Name="Accordions" d:BackgroundColor="Gray" Spacing="2">
                     <controls:Accordion Title="Понедельник"/>
