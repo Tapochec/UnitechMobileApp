@@ -10,12 +10,18 @@ namespace UnitechMobileApp.mvvm.Schedule
 {
     public class SchedulePageViewModel : ViewModelBase
     {
+        private List<AccordionViewModel> accordionViewModels;
+
         public SchedulePageViewModel(List<AccordionViewModel> accordionVms)
         {
-            Load(accordionVms);
+            accordionViewModels = accordionVms;
+            Load();
         }
 
-        public void Load(List<AccordionViewModel> accordionVms)
+        /// <summary>
+        /// Метод получает данные о текущем расписании и загружает их в интерфейс
+        /// </summary>
+        public void Load()
         {
             ScheduleData schedule = Workspace.ActiveUser.GetSchedule();
 
@@ -31,7 +37,7 @@ namespace UnitechMobileApp.mvvm.Schedule
                 {
                     displayLessons.Add(new ScheduleDisplayLesson(lesson.Number, lesson.Description));
                 }
-                accordionVms[day.Key - 1].Lessons = displayLessons;
+                accordionViewModels[day.Key - 1].Lessons = displayLessons;
             }
         }
     }
