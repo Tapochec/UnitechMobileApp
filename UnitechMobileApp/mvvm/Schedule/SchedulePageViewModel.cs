@@ -10,18 +10,41 @@ namespace UnitechMobileApp.mvvm.Schedule
 {
     public class SchedulePageViewModel : ViewModelBase
     {
-        public SchedulePageViewModel(List<AccordionViewModel> accordionVms)
+        private List<AccordionViewModel> accordionViewModels;
+
+        private string headerText;
+        public string HeaderText
         {
-            Load(accordionVms);
+            get { return headerText; }
+            set { SetProperty(ref headerText, value); }
         }
 
-        public void Load(List<AccordionViewModel> accordionVms)
+        public SchedulePageViewModel(List<AccordionViewModel> accordionVms)
         {
-            var dayLessonPairs = Workspace.ActiveUser.GetSchedule();
+            accordionViewModels = accordionVms;
+            Load();
+        }
 
-            foreach (KeyValuePair<int, List<ScheduleLesson>> pair in dayLessonPairs)
+        /// <summary>
+        /// Метод получает данные о текущем расписании и загружает их в интерфейс
+        /// </summary>
+        public void Load()
+        {
+            ScheduleData schedule = Workspace.ActiveUser.GetSchedule();
+
+            // Загрузка параметров
+            HeaderText = schedule.GetHeaderText();
+
+            // Загрузка расписания
+            var dayLessonsPairs = schedule.DayLessonsPairs;
+            foreach (KeyValuePair<int, List<ScheduleLesson>> day in dayLessonsPairs)
             {
-                accordionVms[pair.Key - 1].Items = pair.Value;
+                List<ScheduleDisplayLesson> displayLessons = new List<ScheduleDisplayLesson>();
+                foreach (ScheduleLesson lesson in day.Value)
+                {
+                    displayLessons.Add(new ScheduleDisplayLesson(lesson));
+                }
+                accordionViewModels[day.Key - 1].Lessons = displayLessons;
             }
         }
     }

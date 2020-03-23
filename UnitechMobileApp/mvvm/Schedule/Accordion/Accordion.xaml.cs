@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -43,9 +44,9 @@ namespace UnitechMobileApp.mvvm.Schedule.Accordion
         {
             InitializeComponent();
             ArrowImage.Source = ImageSource.FromFile("Arrow.png");
-            ArrowImage.GestureRecognizers.Add(new TapGestureRecognizer
+            HeaderGrid.GestureRecognizers.Add(new TapGestureRecognizer
             {
-                Command = new Command(ImageTap),
+                Command = new Command(OnHeaderTapped),
                 NumberOfTapsRequired = 1
             });
 
@@ -54,7 +55,7 @@ namespace UnitechMobileApp.mvvm.Schedule.Accordion
 
         public AccordionViewModel ViewModel => BindingContext as AccordionViewModel;
 
-        private void ImageTap()
+        private void OnHeaderTapped()
         {
             if (!CanTap)
                 return;
@@ -75,21 +76,21 @@ namespace UnitechMobileApp.mvvm.Schedule.Accordion
         async void Close()
         {
             await Task.WhenAll(
-                ContentStackLayout.TranslateTo(0, -10, animationDuration),
+                ItemsContainer.TranslateTo(0, -10, animationDuration),
                 ArrowImage.RotateTo(0, animationDuration),
-                ContentStackLayout.FadeTo(0, 50)
+                ItemsContainer.FadeTo(0, 50)
                 );
-            ContentStackLayout.IsVisible = false;
+            ItemsContainer.IsVisible = false;
             CanTap = true;
         }
 
         async void Open()
         {
-            ContentStackLayout.IsVisible = true;
+            ItemsContainer.IsVisible = true;
             await Task.WhenAll(
-                ContentStackLayout.TranslateTo(0, 10, animationDuration),
+                ItemsContainer.TranslateTo(0, 10, animationDuration),
                 ArrowImage.RotateTo(-180, animationDuration),
-                ContentStackLayout.FadeTo(30, 50, Easing.SinIn)
+                ItemsContainer.FadeTo(30, 50, Easing.SinIn)
             );
             CanTap = true;
         }
