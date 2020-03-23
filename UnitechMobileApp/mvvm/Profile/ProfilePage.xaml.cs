@@ -16,7 +16,6 @@ namespace UnitechMobileApp.Views
         {
             InitializeComponent();
             var vm = new ProfilePageViewModel(this);
-
             BindingContext = vm;
         }
     }

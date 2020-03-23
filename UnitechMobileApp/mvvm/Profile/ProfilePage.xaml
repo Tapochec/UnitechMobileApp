@@ -8,9 +8,10 @@
              Title="Профиль">
     <ContentPage.Content>
         <StackLayout>
-            <Label Text="{Binding Source=UserData.FirstName}"/>
-            <Label Text="{Binding Source=UserData.SecondName}"/>
-            <Label Text="{Binding Source=UserData.ThirdName}"/>
+            <Label Text="{Binding Path=UserData.FirstName}"/>
+            <Label Text="{Binding Path=UserData.SecondName}"/>
+            <Label Text="{Binding Path=UserData.ThirdName}"/>
+            <Image Source="{Binding Path=UserData.UserAvatar}"/>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

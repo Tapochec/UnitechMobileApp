@@ -6,7 +6,8 @@ namespace UnitechMobileApp.Model
 {
     public static class Client
     {
-        static string domain = "https://ies.unitech-mo.ru/api?token=e78a4a9c0b16dd06b0ebc4748345a144";
+        static string domain = "https://ies.unitech-mo.ru";
+        static string token = "/api?token=e78a4a9c0b16dd06b0ebc4748345a144";
         static CookieContainer cookies = null;
         private static bool isFirstAuth = true;        
 
@@ -39,7 +40,7 @@ namespace UnitechMobileApp.Model
         /// <returns> Json строку при удачной аутентификации и "null" при неудаче</returns>
         static public string Auth(string login, string password, out bool authResult)
         {
-            HttpWebRequest request = (HttpWebRequest)HttpWebRequest.Create($"{domain}&query=AUTH&login={login}&password={password}");
+            HttpWebRequest request = (HttpWebRequest)HttpWebRequest.Create($"{domain}{token}&query=AUTH&login={login}&password={password}");
             request.CookieContainer = new CookieContainer();
             string result = "";
 
@@ -77,7 +78,7 @@ namespace UnitechMobileApp.Model
         /// <returns>Html с текстом новостей </returns>
         static public string News(int offset = 0, int limit = 1)
         {
-            HttpWebRequest request = (HttpWebRequest)HttpWebRequest.Create($"{domain}&query=NEWS&offset={offset}&limit={limit}");
+            HttpWebRequest request = (HttpWebRequest)HttpWebRequest.Create($"{domain}{token}&query=NEWS&offset={offset}&limit={limit}");
             request.CookieContainer = cookies;
 
             return FillRequest(request);
@@ -90,7 +91,7 @@ namespace UnitechMobileApp.Model
         /// <returns>Json с расписанием</returns>
         static public string Schedule()
         {
-            HttpWebRequest request = (HttpWebRequest)HttpWebRequest.Create($"{domain}&query=SCHEDULE");
+            HttpWebRequest request = (HttpWebRequest)HttpWebRequest.Create($"{domain}{token}&query=SCHEDULE");
             request.CookieContainer = cookies;
 
             return FillRequest(request);
@@ -110,7 +111,7 @@ namespace UnitechMobileApp.Model
             {
                 sucses = true;
 
-                HttpWebRequest request = (HttpWebRequest)HttpWebRequest.Create($"{domain}&query=SCHEDULE&d={begdate.ToShortDateString()}-{enddate.ToShortDateString()}");
+                HttpWebRequest request = (HttpWebRequest)HttpWebRequest.Create($"{domain}{token}&query=SCHEDULE&d={begdate.ToShortDateString()}-{enddate.ToShortDateString()}");
                 request.CookieContainer = cookies;
                 
                 result = FillRequest(request);
@@ -125,17 +126,41 @@ namespace UnitechMobileApp.Model
         /// <returns>Json с учебным планом</returns>
         static public string StudentPlan()
         {
-            HttpWebRequest request = (HttpWebRequest)HttpWebRequest.Create($"{domain}&query=STUDENT_PLAN");
+            HttpWebRequest request = (HttpWebRequest)HttpWebRequest.Create($"{domain}{token}&query=STUDENT_PLAN");
             request.CookieContainer = cookies;
 
             return FillRequest(request);
         }
 
+        /// <summary>
+        /// Метод получает информацию о залогиненом пользователе с API unitech-mo
+        /// </summary>
+        /// <returns>Json-строку с информацией о пользователе</returns>
         static public string UserData()
         {            
-            HttpWebRequest request = (HttpWebRequest)HttpWebRequest.Create($"{domain}&query=USER_DATA&id={Workspace.ActiveUser.id}");
+            HttpWebRequest request = (HttpWebRequest)HttpWebRequest.Create($"{domain}{token}&query=USER_DATA&id={Workspace.ActiveUser.id}");
             request.CookieContainer = cookies;
             return FillRequest(request);
+        }
+
+        static public Xamarin.Forms.ImageSource Avatar()
+        {
+            Xamarin.Forms.ImageSource toReturn = null;
+            using (WebClient webClient = new WebClient())
+            {                
+                try
+                {
+                    //Getting avatar image as byte array
+                    byte[] data = webClient.DownloadData($"{domain}/img/avatar/{Workspace.ActiveUser.id}/{Workspace.ActiveUser.avatarPath}");
+                    toReturn = Xamarin.Forms.ImageSource.FromStream(() => new MemoryStream(data));
+                }
+                //If the user didn't set avatar to his profile WebException will thrown
+                catch (WebException e)
+                {
+                    //Ignore this
+                }
+            }
+            return toReturn;
         }
     }
 }

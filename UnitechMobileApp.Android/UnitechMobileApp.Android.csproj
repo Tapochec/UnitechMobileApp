@@ -69,6 +69,7 @@
   <ItemGroup>
     <Compile Include="CustomRenders\AutoSizeableWebViewRendererAndroid.cs" />
     <Compile Include="DependencyServices\CloseApp.cs" />
+    <Compile Include="DependencyServices\FileWorker.cs" />
     <Compile Include="MainActivity.cs" />
     <Compile Include="Resources\Resource.designer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -96,7 +97,6 @@
     <AndroidResource Include="Resources\mipmap-xxxhdpi\icon.png" />
     <AndroidResource Include="Resources\mipmap-xxxhdpi\launcher_foreground.png" />
   </ItemGroup>
-  <ItemGroup />
   <ItemGroup>
     <ProjectReference Include="..\UnitechMobileApp\UnitechMobileApp.csproj">
       <Project>{908C6922-B277-4ADA-9765-DEC0C6AE10D3}</Project>

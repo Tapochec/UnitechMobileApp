@@ -1,22 +1,28 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Text;
 
 namespace UnitechMobileApp.ProfileHelper
 {
-    public class UserData
+    public class UserData : INotifyPropertyChanged
     {
+        private string firstName;
+        private string secondName;
+        private string thirdName;
+        private Xamarin.Forms.ImageSource userAvatar;
+
         public string FirstName
         {
             get
             {
-                return FirstName;
+                return firstName;
             }
             set
             {
-                if(FirstName != value)
+                if(firstName != value)
                 {
-                    FirstName = value;
+                    firstName = value;
                 }
             }
         }
@@ -25,13 +31,13 @@ namespace UnitechMobileApp.ProfileHelper
         {
             get
             {
-                return SecondName;
+                return secondName;
             }
             set
             {
-                if (SecondName != value)
+                if (secondName != value)
                 {
-                    SecondName = value;
+                    secondName = value;
                 }
             }
         }
@@ -39,15 +45,37 @@ namespace UnitechMobileApp.ProfileHelper
         {
             get
             {
-                return ThirdName;
+                return thirdName;
             }
             set
             {
-                if (ThirdName != value)
+                if (thirdName != value)
                 {
-                    ThirdName = value;
+                    thirdName = value;
                 }
             }
         }
+
+        public Xamarin.Forms.ImageSource UserAvatar
+        {
+            get
+            {
+                return userAvatar;
+            }
+            set
+            {
+                if (userAvatar != value)
+                {
+                    userAvatar = value;
+                }
+            }
+        }
+
+        protected void OnPropertyChanged(string propName)
+        {
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propName));
+        }
+
+        public event PropertyChangedEventHandler PropertyChanged;
     }
 }

@@ -21,6 +21,7 @@ namespace UnitechMobileApp.Model
         {
             int userType = int.Parse(JObject.Parse(json)["user_type"].ToString());
             int userID = int.Parse(JObject.Parse(json)["id"].ToString());
+            string avatar = JObject.Parse(json)["avatar"].ToString();
             if (userType == 2)
             {
                 ActiveUser = new StudentBehavior();
@@ -30,6 +31,7 @@ namespace UnitechMobileApp.Model
                 ActiveUser = new TeacherBehavior();
             }
             ActiveUser.id = userID;
+            ActiveUser.avatarPath = avatar;
         }
     }
 }

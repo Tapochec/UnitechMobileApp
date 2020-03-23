@@ -10,13 +10,14 @@ namespace UnitechMobileApp.mvvm.Profile
 {
     class ProfilePageViewModel : ViewModelBase
     {
-        public UserData UserData;
+        public UserData UserData { get; set; }
         private ContentPage Page;
 
         public ProfilePageViewModel(ContentPage page)
         {
             Page = page;
             UserData = Workspace.ActiveUser.GetUserData();
+            UserData.UserAvatar = Workspace.ActiveUser.GetUserAvatar();
         }
     }
 }

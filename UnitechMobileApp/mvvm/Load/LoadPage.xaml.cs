@@ -49,7 +49,7 @@ namespace UnitechMobileApp.Views
         {
             var login = CrossSettings.Current.GetValueOrDefault("UserLogin", null);
             var pass = CrossSettings.Current.GetValueOrDefault("UserPassword", null);
-
+            
             bool result = false;
 
             if (!string.IsNullOrEmpty(login) && !string.IsNullOrEmpty(pass))
