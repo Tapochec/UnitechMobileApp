@@ -10,6 +10,7 @@
         <ListView HorizontalOptions="CenterAndExpand" 
                   ItemsSource = "{Binding Academics}"
                   HasUnevenRows = "true"
+                  SelectedItem="{Binding SelectedItem, Mode=TwoWay}"
                   >
             <ListView.ItemTemplate>
                 <DataTemplate>
