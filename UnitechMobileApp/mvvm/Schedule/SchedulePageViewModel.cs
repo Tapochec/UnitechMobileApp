@@ -4,6 +4,7 @@ using System.Text;
 using UnitechMobileApp.Model;
 using UnitechMobileApp.mvvm.General;
 using UnitechMobileApp.mvvm.Schedule.Accordion;
+using UnitechMobileApp.mvvm.Schedule.WeekPicker;
 using UnitechMobileApp.ScheduleHelper;
 
 namespace UnitechMobileApp.mvvm.Schedule
@@ -11,6 +12,7 @@ namespace UnitechMobileApp.mvvm.Schedule
     public class SchedulePageViewModel : ViewModelBase
     {
         private List<AccordionViewModel> accordionViewModels;
+        private SchedulePage page;
 
         private string headerText;
         public string HeaderText
@@ -19,8 +21,16 @@ namespace UnitechMobileApp.mvvm.Schedule
             set { SetProperty(ref headerText, value); }
         }
 
-        public SchedulePageViewModel(List<AccordionViewModel> accordionVms)
+        private string selectedWeek;
+        public string SelectedWeek
         {
+            get { return selectedWeek; }
+            set { SetProperty(ref selectedWeek, value); }
+        }
+
+        public SchedulePageViewModel(SchedulePage page, List<AccordionViewModel> accordionVms)
+        {
+            this.page = page;
             accordionViewModels = accordionVms;
             Load();
         }
@@ -34,6 +44,7 @@ namespace UnitechMobileApp.mvvm.Schedule
 
             // Загрузка параметров
             HeaderText = schedule.GetHeaderText();
+            SelectedWeek = schedule.StartDate.ToShortDateString() + "-" + schedule.EndDate.ToShortDateString();
 
             // Загрузка расписания
             var dayLessonsPairs = schedule.DayLessonsPairs;
@@ -46,6 +57,11 @@ namespace UnitechMobileApp.mvvm.Schedule
                 }
                 accordionViewModels[day.Key - 1].Lessons = displayLessons;
             }
+        }
+
+        public async void OpenWeekPickerPage()
+        {
+            await page.Navigation.PushAsync(new WeekPickerPage());
         }
     }
 }

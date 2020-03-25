@@ -36,7 +36,11 @@
                     Margin="0, 20, 0, 20"/>
 
                 <!-- Выбор недели расписания -->
-                
+                <Entry
+                    Margin="20,5,20,10"
+                    x:Name="WeekEntry"
+                    Text="{Binding SelectedWeek}"/>
+
                 <!-- Расписание на все дни -->
                 <StackLayout x:Name="Accordions" d:BackgroundColor="Gray" Spacing="2">
                     <controls:Accordion Title="Понедельник"/>

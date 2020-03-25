@@ -1,6 +1,7 @@
 ﻿using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Linq;
 
 namespace UnitechMobileApp.ScheduleHelper
@@ -52,7 +53,9 @@ namespace UnitechMobileApp.ScheduleHelper
                 WeekParity = (WeekParity)loadedJson.@params.week_parity,
                 Semester = loadedJson.@params.semester,
                 DayLessonsPairs = new Dictionary<int, List<ScheduleLesson>>()
-        };
+            };
+            schedule.StartDate = DateTime.ParseExact(loadedJson.@params.date_from, "yyyymmdd", CultureInfo.InvariantCulture);
+            schedule.EndDate = DateTime.ParseExact(loadedJson.@params.date_to, "yyyymmdd", CultureInfo.InvariantCulture);
 
             // Добавление учебных занятий
             for (int i = 1; i < 7; i++)
