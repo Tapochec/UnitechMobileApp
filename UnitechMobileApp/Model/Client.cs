@@ -1,6 +1,7 @@
 ﻿using System;
 using System.IO;
 using System.Net;
+using UnitechMobileApp.ScheduleHelper;
 
 namespace UnitechMobileApp.Model
 {
@@ -105,8 +106,7 @@ namespace UnitechMobileApp.Model
             sucses = false;
             string result = null;
 
-            if ((begdate.DayOfWeek == DayOfWeek.Monday && enddate.DayOfWeek == DayOfWeek.Sunday) 
-                && ((enddate - begdate).TotalDays == 6))
+            if (Week.IsValid(begdate, enddate))
             {
                 sucses = true;
 

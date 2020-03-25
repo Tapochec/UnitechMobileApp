@@ -54,8 +54,9 @@ namespace UnitechMobileApp.ScheduleHelper
                 Semester = loadedJson.@params.semester,
                 DayLessonsPairs = new Dictionary<int, List<ScheduleLesson>>()
             };
-            schedule.StartDate = DateTime.ParseExact(loadedJson.@params.date_from, "yyyymmdd", CultureInfo.InvariantCulture);
-            schedule.EndDate = DateTime.ParseExact(loadedJson.@params.date_to, "yyyymmdd", CultureInfo.InvariantCulture);
+            DateTime monday = DateTime.ParseExact(loadedJson.@params.date_from, "yyyyMMdd", CultureInfo.InvariantCulture);
+            DateTime sunday = DateTime.ParseExact(loadedJson.@params.date_to, "yyyyMMdd", CultureInfo.InvariantCulture);
+            schedule.Week = new Week(monday, sunday);
 
             // Добавление учебных занятий
             for (int i = 1; i < 7; i++)

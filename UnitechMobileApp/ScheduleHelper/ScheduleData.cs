@@ -12,8 +12,7 @@ namespace UnitechMobileApp.ScheduleHelper
         public WeekParity WeekParity;
         public int WeekNumber;
         public int Semester;
-        public DateTime StartDate;
-        public DateTime EndDate;
+        public Week Week;
 
         public Dictionary<int, List<ScheduleLesson>> DayLessonsPairs;
 

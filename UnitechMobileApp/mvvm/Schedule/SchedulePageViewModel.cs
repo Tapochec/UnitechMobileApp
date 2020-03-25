@@ -21,8 +21,8 @@ namespace UnitechMobileApp.mvvm.Schedule
             set { SetProperty(ref headerText, value); }
         }
 
-        private string selectedWeek;
-        public string SelectedWeek
+        private Week selectedWeek;
+        public Week SelectedWeek
         {
             get { return selectedWeek; }
             set { SetProperty(ref selectedWeek, value); }
@@ -44,7 +44,7 @@ namespace UnitechMobileApp.mvvm.Schedule
 
             // Загрузка параметров
             HeaderText = schedule.GetHeaderText();
-            SelectedWeek = schedule.StartDate.ToShortDateString() + "-" + schedule.EndDate.ToShortDateString();
+            SelectedWeek = schedule.Week;
 
             // Загрузка расписания
             var dayLessonsPairs = schedule.DayLessonsPairs;
@@ -59,9 +59,9 @@ namespace UnitechMobileApp.mvvm.Schedule
             }
         }
 
-        public async void OpenWeekPickerPage()
+        public void OpenWeekPickerPage()
         {
-            await page.Navigation.PushAsync(new WeekPickerPage());
+            page.Navigation.PushAsync(new WeekPickerPage(SelectedWeek));
         }
     }
 }

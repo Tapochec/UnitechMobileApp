@@ -4,6 +4,7 @@
              xmlns:d="http://xamarin.com/schemas/2014/forms/design"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              xmlns:controls="clr-namespace:UnitechMobileApp.mvvm.Schedule.Accordion"
+             xmlns:weekPicker="clr-namespace:UnitechMobileApp.mvvm.Schedule.WeekPicker"
              mc:Ignorable="d"
              x:Class="UnitechMobileApp.mvvm.Schedule.SchedulePage" d:BackgroundColor="#B7B7B7"
              Title="Расписание">
@@ -22,7 +23,9 @@
                 </Trigger>
             </Style.Triggers>
         </Style>
-        
+
+        <weekPicker:WeekToStringConverter x:Key="weekConverter"/>
+
     </ContentPage.Resources>
     <ContentPage.Content>
         <ScrollView>
@@ -39,7 +42,7 @@
                 <Entry
                     Margin="20,5,20,10"
                     x:Name="WeekEntry"
-                    Text="{Binding SelectedWeek}"/>
+                    Text="{Binding Path=SelectedWeek, Converter={StaticResource weekConverter}, Mode=OneWay}"/>
 
                 <!-- Расписание на все дни -->
                 <StackLayout x:Name="Accordions" d:BackgroundColor="Gray" Spacing="2">
