@@ -72,6 +72,7 @@
   <ItemGroup>
     <Compile Include="CustomRenders\AutoSizeableWebViewRendererAndroid.cs" />
     <Compile Include="CustomRenders\CircleImageRendererAndroid.cs" />
+    <Compile Include="CustomRenders\CustomLabelRendererAndroid.cs" />
     <Compile Include="DependencyServices\CloseApp.cs" />
     <Compile Include="DependencyServices\FileWorker.cs" />
     <Compile Include="MainActivity.cs" />

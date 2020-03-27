@@ -7,12 +7,12 @@ using Xamarin.Forms;
 using Xamarin.Forms.Platform.Android;
 using Android.Content;
 
-[assembly: ExportRenderer(typeof(CircleImage), typeof(ImageCircleRenderer))]
+[assembly: ExportRenderer(typeof(CircleImage), typeof(ImageCircleRendererAndroid))]
 namespace UnitechMobileApp.Droid.CustomRenders
 {
-    public class ImageCircleRenderer : ImageRenderer
+    public class ImageCircleRendererAndroid : ImageRenderer
     {
-        public ImageCircleRenderer(Context context) : base(context) { }
+        public ImageCircleRendererAndroid(Context context) : base(context) { }
 
         protected override void OnElementChanged(ElementChangedEventArgs<Image> e)
         {

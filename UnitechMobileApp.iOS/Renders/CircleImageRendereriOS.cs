@@ -5,10 +5,10 @@ using UnitechMobileApp.mvvm.Profile;
 using Xamarin.Forms;
 using Xamarin.Forms.Platform.iOS;
 
-[assembly: ExportRenderer(typeof(CircleImage), typeof(ImageCircleRenderer))]
+[assembly: ExportRenderer(typeof(CircleImage), typeof(ImageCircleRendereriOS))]
 namespace UnitechMobileApp.iOS.CustomRenderers
 {
-    public class ImageCircleRenderer : ImageRenderer
+    public class ImageCircleRendereriOS : ImageRenderer
     {
         protected override void OnElementChanged(ElementChangedEventArgs<Image> e)
         {

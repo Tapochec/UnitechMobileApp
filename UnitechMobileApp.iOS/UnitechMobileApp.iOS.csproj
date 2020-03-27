@@ -67,6 +67,7 @@
     <Compile Include="AppDelegate.cs" />
     <Compile Include="Renders\AutoSizeableWebViewRendereriOS.cs" />
     <Compile Include="Renders\CircleImageRendereriOS.cs" />
+    <Compile Include="Renders\CustomLabelRendereriOS.cs" />
     <None Include="Entitlements.plist" />
     <None Include="Info.plist" />
     <Compile Include="Properties\AssemblyInfo.cs" />

@@ -28,7 +28,6 @@ namespace UnitechMobileApp.mvvm.Profile
                 return GetRatingColor(UserData.Rating);
             }
         }
- 
 
         public ProfilePageViewModel(ContentPage page)
         {
