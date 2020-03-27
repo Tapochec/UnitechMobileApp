@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 
 using Foundation;
+using ProgressRingControl.Forms.Plugin.iOS;
 using UIKit;
 
 namespace UnitechMobileApp.iOS
@@ -24,6 +25,9 @@ namespace UnitechMobileApp.iOS
         {
             global::Xamarin.Forms.Forms.Init();
             LoadApplication(new App());
+
+            //Initialization of ProgressringRenderer for iOS
+            ProgressRingRenderer.Init();
 
             return base.FinishedLaunching(app, options);
         }

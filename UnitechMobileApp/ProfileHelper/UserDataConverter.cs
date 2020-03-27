@@ -56,6 +56,18 @@ namespace UnitechMobileApp.ProfileHelper
             //the user may haven't got third name
             result.ThirdName = fio.Length == 3? fio[2]: string.Empty;
 
+            result.Rating = double.Parse(raw.rating);
+            result.BirthDay = raw.bd;
+
+            result.FacultText = raw.FacultText;
+            result.SpecText = raw.SpecText;
+            result.Specialization = raw.eway;
+            result.GroupText = raw.GroupText;
+            result.StudyStartYear = raw.yi;
+            result.EducationPeriod = raw.eduPeriod;
+
+            result.EMail = raw.email;
+
             return result;
         }
     }

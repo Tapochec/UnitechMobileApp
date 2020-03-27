@@ -143,6 +143,11 @@ namespace UnitechMobileApp.Model
             return FillRequest(request);
         }
 
+
+        /// <summary>
+        /// Метод получает аватар пользователя в виде массива байтов с unitech-mo
+        /// </summary>
+        /// <returns>ImageSource, в котором хранится аватар пользователя</returns>
         static public Xamarin.Forms.ImageSource Avatar()
         {
             Xamarin.Forms.ImageSource toReturn = null;
@@ -161,6 +166,17 @@ namespace UnitechMobileApp.Model
                 }
             }
             return toReturn;
+        }
+
+        /// <summary>
+        /// Метод получает список одногруппников пользователя с API unitech-mo
+        /// </summary>
+        /// <returns>Json-строку с списком одногруппников пользователя</returns>
+        static public string UserClassMate()
+        {
+            HttpWebRequest request = (HttpWebRequest)HttpWebRequest.Create($"{domain}{token}&query=USER_CLASSMATE&id={Workspace.ActiveUser.id}");
+            request.CookieContainer = cookies;
+            return FillRequest(request);
         }
     }
 }

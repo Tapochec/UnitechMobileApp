@@ -7,10 +7,21 @@ namespace UnitechMobileApp.ProfileHelper
 {
     public class UserData : INotifyPropertyChanged
     {
-        private string firstName;
-        private string secondName;
-        private string thirdName;
-        private Xamarin.Forms.ImageSource userAvatar;
+        private string firstName;//name
+        private string secondName;//patronymic
+        private string thirdName;//family
+        private Xamarin.Forms.ImageSource userAvatar = Xamarin.Forms.ImageSource.FromFile("stock_people.png");// avatar image
+        private double userRating; // user rating
+        private string _dateBirth; // user birthday 
+
+        private string facultText; // Институт
+        private string specText; // направление
+        private string specialization; // специализация
+        private string group; // группа
+        private string studyStartYear; // год начала обучения
+        private string eduPeriod; // продолжительность обучения
+
+        private string email;
 
         public string FirstName
         {
@@ -64,13 +75,149 @@ namespace UnitechMobileApp.ProfileHelper
             }
             set
             {
-                if (userAvatar != value)
+                if (userAvatar != value && value != null)
                 {
                     userAvatar = value;
                 }
             }
         }
 
+        public double Rating
+        {
+            get
+            {
+                return userRating;
+            }
+            set
+            {
+                if (userRating != value)
+                {
+                    userRating = value;
+                }
+            }
+        }
+
+        public string BirthDay
+        {
+            get
+            {
+                return _dateBirth;
+            }
+            set
+            {
+                if (_dateBirth != value)
+                {
+                    _dateBirth = value;
+                }
+            }
+        }
+
+        public string FacultText
+        {
+            get
+            {
+                return facultText;
+            }
+            set
+            {
+                if (facultText != value)
+                {
+                    facultText = value;
+                }
+            }
+        }
+
+        public string SpecText
+        {
+            get
+            {
+                return specText;
+            }
+            set
+            {
+                if (specText != value)
+                {
+                    specText = value;
+                }
+            }
+        }
+
+        public string Specialization
+        {
+            get
+            {
+                return specialization;
+            }
+            set
+            {
+                if (specialization != value)
+                {
+                    specialization = value;
+                }
+            }
+        }
+
+        public string GroupText
+        {
+            get
+            {
+                return group;
+            }
+            set
+            {
+                if (group != value)
+                {
+                    group = value;
+                }
+            }
+        }
+
+        public string StudyStartYear
+        {
+            get
+            {
+                return studyStartYear;
+            }
+            set
+            {
+                if (studyStartYear != value)
+                {
+                    studyStartYear = value;
+                }
+            }
+        }
+
+        public string EducationPeriod
+        {
+            get
+            {
+                return eduPeriod;
+            }
+            set
+            {
+                if (eduPeriod != value)
+                {
+                    eduPeriod = value;
+                }
+            }
+        }
+
+        public string EMail
+        {
+            get
+            {
+                return email;
+            }
+            set
+            {
+                if (email != value)
+                {
+                    email = value;
+                }
+            }
+        }
+
+        //Если не понадобится в будущем, можно удалить
         protected void OnPropertyChanged(string propName)
         {
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propName));

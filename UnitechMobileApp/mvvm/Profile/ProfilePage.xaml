@@ -3,15 +3,233 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:d="http://xamarin.com/schemas/2014/forms/design"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:controls="clr-namespace:UnitechMobileApp.mvvm.Profile"
+             xmlns:control="clr-namespace:ProgressRingControl.Forms.Plugin;assembly=ProgressRing.Forms.Plugin"
              mc:Ignorable="d"
              x:Class="UnitechMobileApp.Views.ProfilePage"
              Title="Профиль">
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            
+            <Style x:Key="user_info_header" TargetType="Frame">
+                <Setter Property="HasShadow" Value="False"/>
+                <Setter Property="Margin" Value="0,0,0,-8"/>
+                <Setter Property="Padding" Value="10"/>
+                <Setter Property="BackgroundColor" Value="#eee"/>
+            </Style>
+
+            <Style x:Key="user_info_header_text" TargetType="Label">
+                <Setter Property="FontAttributes" Value="Bold"/>
+                <Setter Property="HorizontalTextAlignment" Value="Center"/>
+            </Style>
+
+            <Style x:Key="user_info_border" TargetType="Frame">
+                <Setter Property="HasShadow" Value="False"/>
+                <Setter Property="Padding" Value="1,2,2,2"/>
+                <Setter Property="BorderColor" Value="#eee"/>
+            </Style>
+
+            <Style x:Key="user_info_field_bold" TargetType="Span">
+                <Setter Property="FontAttributes" Value="Bold"/>
+                <Setter Property="TextColor" Value="#3c3b3b"/>
+            </Style>
+
+        </ResourceDictionary>
+    </ContentPage.Resources>
+    
     <ContentPage.Content>
-        <StackLayout>
-            <Label Text="{Binding Path=UserData.FirstName}"/>
-            <Label Text="{Binding Path=UserData.SecondName}"/>
-            <Label Text="{Binding Path=UserData.ThirdName}"/>
-            <Image Source="{Binding Path=UserData.UserAvatar}"/>
-        </StackLayout>
+        <ScrollView>
+            <StackLayout>
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                    </Grid.RowDefinitions>
+
+                    <Grid Padding="10,20,10,10" RowSpacing="10">
+                        <controls:CircleImage Source="{Binding Path=UserData.UserAvatar}" WidthRequest="150" HeightRequest="150" Aspect="AspectFill" VerticalOptions="Start" HorizontalOptions="CenterAndExpand"/>
+                        <control:ProgressRing Progress="{Binding Path=RatingProgress}" RingBaseColor="White" RingThickness="8" RingProgressColor="{Binding Path=ProgressBarColor}"/>
+                        <Label HorizontalTextAlignment="Center" 
+                               VerticalTextAlignment="End" 
+                               Margin="0,0,0,15" 
+                               TextColor="White" 
+                               FontAttributes="Bold" 
+                               FontFamily="Serif" 
+                               FontSize="Title">
+                            <Label.FormattedText>
+                                <FormattedString>
+                                    <Span Text="{Binding Path=UserData.Rating}"/>
+                                    <Span Text="%"/>                                    
+                                </FormattedString>
+                            </Label.FormattedText>
+                        </Label>
+                    </Grid>
+
+                    <Grid Grid.Row="1" Margin="5,5,5,0">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                        </Grid.RowDefinitions>
+                        
+                        <Frame Grid.Row="0" Style="{StaticResource user_info_header}">
+                            <Label Text="Личные данные" Style="{StaticResource user_info_header_text}"/>
+                        </Frame>
+
+                        <Frame Grid.Row="1" Style="{StaticResource user_info_border}">
+                            <Frame HasShadow="False" Grid.Row="1" Padding="10">
+                                <Grid>
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="Auto"/>
+                                        <RowDefinition Height="Auto"/>
+                                        <RowDefinition Height="Auto"/>
+                                        <RowDefinition Height="Auto"/>
+                                    </Grid.RowDefinitions>
+                                    <Label Grid.Row="0">
+                                        <Label.FormattedText>
+                                            <FormattedString>
+                                                <Span Text="Имя: " Style="{StaticResource user_info_field_bold}"/>
+                                                <Span Text="{Binding Path=UserData.FirstName}"/>
+                                            </FormattedString>
+                                        </Label.FormattedText>
+                                    </Label>
+                                    <Label Grid.Row="1">
+                                        <Label.FormattedText>
+                                            <FormattedString>
+                                                <Span Text="Фамилия: " Style="{StaticResource user_info_field_bold}"/>
+                                                <Span Text="{Binding Path=UserData.SecondName}"/>
+                                            </FormattedString>
+                                        </Label.FormattedText>
+                                    </Label>
+                                    <Label Grid.Row="2">
+                                        <Label.FormattedText>
+                                            <FormattedString>
+                                                <Span Text="Отчество: " Style="{StaticResource user_info_field_bold}"/>
+                                                <Span Text="{Binding Path=UserData.ThirdName}"/>
+                                            </FormattedString>
+                                        </Label.FormattedText>
+                                    </Label>
+                                    <Label Grid.Row="3">
+                                        <Label.FormattedText>
+                                            <FormattedString>
+                                                <Span Text="Дата рождения: " Style="{StaticResource user_info_field_bold}"/>
+                                                <Span Text="{Binding Path=UserData.BirthDay}"/>
+                                            </FormattedString>
+                                        </Label.FormattedText>
+                                    </Label>
+                                </Grid>
+                            </Frame>
+                        </Frame>
+                    </Grid>
+
+                    <Grid Grid.Row="2" Margin="5,5,5,0">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                        </Grid.RowDefinitions>
+
+                        <Frame Grid.Row="0" Style="{StaticResource user_info_header}">
+                            <Label Text="Корпоративные данные" Style="{StaticResource user_info_header_text}"/>
+                        </Frame>
+
+                        <Frame Grid.Row="1" Style="{StaticResource user_info_border}">
+                            <Frame HasShadow="False" Grid.Row="1" Padding="10">
+                                <Grid>
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="Auto"/>
+                                        <RowDefinition Height="Auto"/>
+                                        <RowDefinition Height="Auto"/>
+                                        <RowDefinition Height="Auto"/>
+                                        <RowDefinition Height="Auto"/>
+                                        <RowDefinition Height="Auto"/>
+                                    </Grid.RowDefinitions>
+                                    <Label Grid.Row="0">
+                                        <Label.FormattedText>
+                                            <FormattedString>
+                                                <Span Text="Институт: " Style="{StaticResource user_info_field_bold}"/>
+                                                <Span Text="{Binding Path=UserData.FacultText}"/>
+                                            </FormattedString>
+                                        </Label.FormattedText>
+                                    </Label>
+                                    <Label Grid.Row="1">
+                                        <Label.FormattedText>
+                                            <FormattedString>
+                                                <Span Text="Специальность / направление подготовки: " Style="{StaticResource user_info_field_bold}"/>
+                                                <Span Text="{Binding Path=UserData.SpecText}"/>
+                                            </FormattedString>
+                                        </Label.FormattedText>
+                                    </Label>
+                                    <Label Grid.Row="2">
+                                        <Label.FormattedText>
+                                            <FormattedString>
+                                                <Span Text="Профиль / специализация / направленность: " Style="{StaticResource user_info_field_bold}"/>
+                                                <Span Text="{Binding Path=UserData.Specialization}"/>
+                                            </FormattedString>
+                                        </Label.FormattedText>
+                                    </Label>
+                                    <Label Grid.Row="3">
+                                        <Label.FormattedText>
+                                            <FormattedString>
+                                                <Span Text="Группа: " FontAttributes="Bold" TextColor="#3c3b3b"/>
+                                                <Span Text="{Binding Path=UserData.GroupText}"/>
+                                            </FormattedString>
+                                        </Label.FormattedText>
+                                    </Label>
+                                    <Label Grid.Row="4">
+                                        <Label.FormattedText>
+                                            <FormattedString>
+                                                <Span Text="Год поступления: " Style="{StaticResource user_info_field_bold}"/>
+                                                <Span Text="{Binding Path=UserData.StudyStartYear}"/>
+                                            </FormattedString>
+                                        </Label.FormattedText>
+                                    </Label>
+                                    <Label Text="{Binding Path=UserData.EducationPeriod}" Grid.Row="5">
+                                        <Label.FormattedText>
+                                            <FormattedString>
+                                                <Span Text="Период обучения: " Style="{StaticResource user_info_field_bold}"/>
+                                                <Span Text="{Binding Path=UserData.EducationPeriod}"/>
+                                            </FormattedString>
+                                        </Label.FormattedText>
+                                    </Label>
+                                </Grid>
+                            </Frame>
+                        </Frame>
+                    </Grid>
+
+                    <Grid Grid.Row="3" Margin="5,5,5,0">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                        </Grid.RowDefinitions>
+
+                        <Frame Grid.Row="0" Style="{StaticResource user_info_header}">
+                            <Label Text="Контакты" Style="{StaticResource user_info_header_text}"/>
+                        </Frame>
+
+                        <Frame Grid.Row="1" Style="{StaticResource user_info_border}">
+                            <Frame HasShadow="False" Grid.Row="1" Padding="10">
+                                <Grid>
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="Auto"/>
+                                    </Grid.RowDefinitions>
+                                    <Label Grid.Row="0">
+                                        <Label.FormattedText>
+                                            <FormattedString>
+                                                <Span Text="Адрес электронной почты: " Style="{StaticResource user_info_field_bold}"/>
+                                                <Span Text="{Binding Path=UserData.EMail}"/>
+                                            </FormattedString>
+                                        </Label.FormattedText>
+                                    </Label>
+                                </Grid>
+                            </Frame>
+                        </Frame>
+                    </Grid>
+                </Grid>
+
+            </StackLayout>
+        </ScrollView>
+        
     </ContentPage.Content>
 </ContentPage>
