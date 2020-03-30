@@ -61,7 +61,7 @@ namespace UnitechMobileApp.mvvm.Schedule
 
         public void OpenWeekPickerPage()
         {
-            page.Navigation.PushAsync(new WeekPickerPage(SelectedWeek));
+            page.Navigation.PushModalAsync(new WeekPickerPage(this));
         }
     }
 }
