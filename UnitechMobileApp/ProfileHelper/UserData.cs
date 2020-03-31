@@ -22,6 +22,8 @@ namespace UnitechMobileApp.ProfileHelper
         private string eduPeriod; // продолжительность обучения
 
         private string email;
+        private bool online;
+        private string studentHash;
 
         public string FirstName
         {
@@ -75,7 +77,7 @@ namespace UnitechMobileApp.ProfileHelper
             }
             set
             {
-                if (userAvatar != value && value != null)
+                if (userAvatar != value)
                 {
                     userAvatar = value;
                 }
@@ -215,6 +217,41 @@ namespace UnitechMobileApp.ProfileHelper
                     email = value;
                 }
             }
+        }
+
+        public bool Online
+        {
+            get
+            {
+                return online;
+            }
+            set
+            {
+                if (online != value)
+                {
+                    online = value;
+                }
+            }
+        }
+
+        public string StudentHash
+        {
+            get
+            {
+                return studentHash;
+            }
+            set
+            {
+                if (studentHash != value)
+                {
+                    studentHash = value;
+                }
+            }
+        }
+
+        public bool IsUserSame(UserData other)
+        {
+            return StudentHash == other.StudentHash;
         }
 
         //Если не понадобится в будущем, можно удалить

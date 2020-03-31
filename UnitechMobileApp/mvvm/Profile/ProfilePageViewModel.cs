@@ -1,6 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
+﻿using System.Collections.Generic;
 using UnitechMobileApp.Model;
 using UnitechMobileApp.mvvm.General;
 using UnitechMobileApp.ProfileHelper;
@@ -10,7 +8,66 @@ namespace UnitechMobileApp.mvvm.Profile
 {
     class ProfilePageViewModel : ViewModelBase
     {
-        public UserData UserData { get; set; }
+        public UserData UserData
+        {
+            get
+            {
+                return onLoginedUser ? activeUser : selectedClassMate;
+            }
+            set
+            {
+                if(onLoginedUser)
+                {
+                    SetProperty(ref activeUser, value);
+                }
+                else
+                {
+                    SetProperty(ref selectedClassMate, value);
+                }
+            }
+        }
+
+        public UserData activeUser; // for logined user
+        public UserData selectedClassMate; // for selected classmate
+        bool onLoginedUser = true; //boolean flag that indicates, that the user is on own profile
+
+        public bool OnLoginedUser
+        {
+            get
+            {
+                return onLoginedUser;
+            }
+            set
+            {
+                SetProperty(ref onLoginedUser, value);
+            }
+        }
+
+        public Color OnlineColor
+        {
+            get
+            {
+                return GetOnlineColor(UserData.Online);
+            }
+        }
+
+        private Color GetOnlineColor(bool online)
+        {
+            return Color.FromHex(online ? "#12bc00" : "#e3a521");
+        }
+
+        private List<ClassMateInfo> _classMates;
+        public List<ClassMateInfo> ClassMates
+        {
+            get
+            {
+                return _classMates;
+            }
+            set
+            {
+                SetProperty(ref _classMates, value);
+            }
+        }
         private ContentPage Page;
 
         public double RatingProgress
@@ -29,24 +86,50 @@ namespace UnitechMobileApp.mvvm.Profile
             }
         }
 
-        public ProfilePageViewModel(ContentPage page)
-        {
-            Page = page;
-            UserData = Workspace.ActiveUser.GetUserData();
-            UserData.UserAvatar = Workspace.ActiveUser.GetUserAvatar();
-        }
-
         private Color GetRatingColor(double rating)
         {
-            if(rating < 40)
+            if (rating < 40)
             {
                 return Color.FromHex("#dc143c");
             }
-            else if(rating < 79.9)
+            else if (rating < 79.9)
             {
                 return Color.FromHex("#ffdf00");
             }
             return Color.FromHex("#61b329");
+        }
+
+        public ProfilePageViewModel(ContentPage page)
+        {
+            Page = page;
+            activeUser = Workspace.ActiveUser.GetUserData();
+            UserData = activeUser;
+            FillClassMates();
+        }
+
+        private void Refresh()
+        {
+            OnPropertyChanged("UserData");
+            OnPropertyChanged("RatingProgress");
+            OnPropertyChanged("OnlineColor");
+            OnPropertyChanged("ProgressBarColor");
+            OnPropertyChanged("ClassMates");
+        }
+
+        // the tapp command analog
+        public void Tapped(CircleImage sender)
+        {
+            selectedClassMate = Workspace.ActiveUser.GetUserData(sender.Tag.ToString());
+            selectedClassMate.UserAvatar = Workspace.ActiveUser.GetUserAvatar(sender.Tag.ToString(), sender.AvatarPath.ToString());
+            OnLoginedUser = activeUser.IsUserSame(selectedClassMate);
+            ClassMates = Workspace.ActiveUser.GetUserClassMates(sender.Tag.ToString());
+            Refresh();
+        }
+
+        private void FillClassMates()
+        {
+            var classMateList = Workspace.ActiveUser.GetUserClassMates();
+            ClassMates = classMateList;
         }
     }
 }

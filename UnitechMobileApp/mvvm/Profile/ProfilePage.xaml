@@ -5,8 +5,10 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              xmlns:controls="clr-namespace:UnitechMobileApp.mvvm.Profile"
              xmlns:control="clr-namespace:ProgressRingControl.Forms.Plugin;assembly=ProgressRing.Forms.Plugin"
+             xmlns:dynamic_stack_layout="clr-namespace:SuaveControls.DynamicStackLayout;assembly=SuaveControls.DynamicStackLayout"
              mc:Ignorable="d"
              x:Class="UnitechMobileApp.Views.ProfilePage"
+             x:Name="thisPage"
              Title="Профиль">
     <ContentPage.Resources>
         <ResourceDictionary>
@@ -47,6 +49,7 @@
                         <RowDefinition Height="Auto"/>
                         <RowDefinition Height="Auto"/>
                         <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
                     </Grid.RowDefinitions>
 
                     <Grid Padding="10,20,10,10" RowSpacing="10">
@@ -62,10 +65,18 @@
                             <Label.FormattedText>
                                 <FormattedString >
                                     <Span Text="{Binding Path=UserData.Rating}" />
-                                    <Span Text="%" />        
+                                    <Span Text="%" />
                                 </FormattedString>
                             </Label.FormattedText>
                         </controls:CustomLabel>
+                        <Frame BackgroundColor="{Binding OnlineColor}"
+                               BorderColor="White"
+                               CornerRadius="50"
+                               HorizontalOptions="Center"
+                               VerticalOptions="CenterAndExpand"
+                               Margin="100,100,0,0"
+                               Padding="10,10,10,10"/>
+
                     </Grid>
 
                     <Grid Grid.Row="1" Margin="5,5,5,0">
@@ -73,9 +84,17 @@
                             <RowDefinition Height="Auto"/>
                             <RowDefinition Height="Auto"/>
                         </Grid.RowDefinitions>
-                        
+
                         <Frame Grid.Row="0" Style="{StaticResource user_info_header}">
-                            <Label Text="Личные данные" Style="{StaticResource user_info_header_text}"/>
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition/>
+                                    <ColumnDefinition Width="auto"/>
+                                    <ColumnDefinition/>
+                                </Grid.ColumnDefinitions>
+                                <Label Grid.Column="1" Text="Личные данные" Style="{StaticResource user_info_header_text}"/>
+                                <Label Grid.Column="2" Text="(Это вы)" IsVisible="{Binding OnLoginedUser}" Style="{StaticResource user_info_header_text}"/>
+                            </Grid>                            
                         </Frame>
 
                         <Frame Grid.Row="1" Style="{StaticResource user_info_border}">
@@ -90,7 +109,7 @@
                                     <Label Grid.Row="0">
                                         <Label.FormattedText>
                                             <FormattedString>
-                                                <Span Text="Имя: " Style="{StaticResource user_info_field_bold}"/>
+                                                <Span Text="Фамилия: " Style="{StaticResource user_info_field_bold}"/>
                                                 <Span Text="{Binding Path=UserData.FirstName}"/>
                                             </FormattedString>
                                         </Label.FormattedText>
@@ -98,7 +117,7 @@
                                     <Label Grid.Row="1">
                                         <Label.FormattedText>
                                             <FormattedString>
-                                                <Span Text="Фамилия: " Style="{StaticResource user_info_field_bold}"/>
+                                                <Span Text="Имя: " Style="{StaticResource user_info_field_bold}"/>
                                                 <Span Text="{Binding Path=UserData.SecondName}"/>
                                             </FormattedString>
                                         </Label.FormattedText>
@@ -211,9 +230,6 @@
                         <Frame Grid.Row="1" Style="{StaticResource user_info_border}">
                             <Frame HasShadow="False" Grid.Row="1" Padding="10">
                                 <Grid>
-                                    <Grid.RowDefinitions>
-                                        <RowDefinition Height="Auto"/>
-                                    </Grid.RowDefinitions>
                                     <Label Grid.Row="0">
                                         <Label.FormattedText>
                                             <FormattedString>
@@ -223,6 +239,71 @@
                                         </Label.FormattedText>
                                     </Label>
                                 </Grid>
+                            </Frame>
+                        </Frame>
+                    </Grid>
+
+                    <Grid Grid.Row="4" Margin="5,5,5,0">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                        </Grid.RowDefinitions>
+
+                        <Frame Grid.Row="0" Style="{StaticResource user_info_header}">
+                            <Label Text="Одногруппники" Style="{StaticResource user_info_header_text}"/>
+                        </Frame>
+
+                        <Frame Grid.Row="1" Style="{StaticResource user_info_border}">
+                            <Frame HasShadow="False" Grid.Row="1" Padding="10">
+                                <ScrollView Orientation="Horizontal" HorizontalOptions="Fill">
+                                    <dynamic_stack_layout:DynamicStackLayout ItemsSource="{Binding ClassMates}"
+                                                                             Orientation="Horizontal"
+                                                                             HorizontalOptions="Fill">
+                                        <dynamic_stack_layout:DynamicStackLayout.ItemTemplate>
+                                            <DataTemplate>
+                                                <Grid WidthRequest="80">
+                                                    <Grid.RowDefinitions>
+                                                        <RowDefinition Height="80"/>
+                                                        <RowDefinition Height="auto"/>
+                                                    </Grid.RowDefinitions>
+
+                                                    <controls:CircleImage Grid.Row="0"
+                                                                          Source="{Binding Avatar}"
+                                                                          WidthRequest="80"
+                                                                          HeightRequest="80"
+                                                                          Tag="{Binding Id}"
+                                                                          AvatarPath="{Binding AvatarPath}"
+                                                                          Aspect="AspectFill"
+                                                                          VerticalOptions="Start"
+                                                                          HorizontalOptions="CenterAndExpand">
+                                                        <controls:CircleImage.GestureRecognizers>
+                                                            <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped"/>
+                                                        </controls:CircleImage.GestureRecognizers>
+                                                    </controls:CircleImage>
+
+                                                    <Frame Grid.Row="0"
+                                                        BackgroundColor="{Binding OnlineColor}"
+                                                        BorderColor="White"
+                                                        CornerRadius="50"
+                                                        HorizontalOptions="Center"
+                                                        VerticalOptions="CenterAndExpand"
+                                                        Margin="55,55,0,0"
+                                                        Padding="9,9,9,9"/>
+
+                                                    <Label Grid.Row="1" HorizontalTextAlignment="Center">
+                                                        <Label.FormattedText>
+                                                            <FormattedString>
+                                                                <Span Text="{Binding SecondName}"/>
+                                                                <Span Text="&#x0a;"/>
+                                                                <Span Text="{Binding FirstName}"/>
+                                                            </FormattedString>
+                                                        </Label.FormattedText>
+                                                    </Label>
+                                                </Grid>
+                                            </DataTemplate>
+                                        </dynamic_stack_layout:DynamicStackLayout.ItemTemplate>
+                                    </dynamic_stack_layout:DynamicStackLayout>
+                                </ScrollView>
                             </Frame>
                         </Frame>
                     </Grid>

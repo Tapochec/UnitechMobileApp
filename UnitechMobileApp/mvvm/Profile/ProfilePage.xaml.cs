@@ -12,6 +12,12 @@ namespace UnitechMobileApp.Views
             InitializeComponent();
             var vm = new ProfilePageViewModel(this);
             BindingContext = vm;
-        }        
+        }
+
+        private void TapGestureRecognizer_Tapped(object sender, System.EventArgs e)
+        {
+            //через команду сделать не смог
+            ((ProfilePageViewModel)BindingContext).Tapped((CircleImage)sender);
+        }
     }
 }

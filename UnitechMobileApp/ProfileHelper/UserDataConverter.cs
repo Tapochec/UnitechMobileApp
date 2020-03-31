@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Text;
+using UnitechMobileApp.Model;
 
 namespace UnitechMobileApp.ProfileHelper
 {
@@ -56,6 +57,7 @@ namespace UnitechMobileApp.ProfileHelper
             //the user may haven't got third name
             result.ThirdName = fio.Length == 3? fio[2]: string.Empty;
 
+            result.UserAvatar = Workspace.ActiveUser.GetUserAvatar();
             result.Rating = double.Parse(raw.rating);
             result.BirthDay = raw.bd;
 
@@ -67,6 +69,8 @@ namespace UnitechMobileApp.ProfileHelper
             result.EducationPeriod = raw.eduPeriod;
 
             result.EMail = raw.email;
+            result.Online = raw.online == "1";
+            result.StudentHash = raw.student_hash;
 
             return result;
         }

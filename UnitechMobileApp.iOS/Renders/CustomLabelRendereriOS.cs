@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using CoreGraphics;
-using Foundation;
+﻿using CoreGraphics;
 using UIKit;
 using UnitechMobileApp.iOS.Renders;
 using UnitechMobileApp.mvvm.Profile;
@@ -22,14 +17,11 @@ namespace UnitechMobileApp.iOS.Renders
             var view = (CustomLabel)Element;
             if (view == null) return;
 
-            // Adding the Button text shadow effect
-            //Control.TitleLabel.ShadowOffset = new CGSize(0, 0.25);
-            
-            //if (((CustomLabel)Element).HasShadow)
-            //{
-            //    Control.
-           // }
-            //Control.SetTitleShadowColor(((CustomLabel)Element).TextShadowColor.ToUIColor(), UIControlState.Normal);
+            if(view.HasShadow)
+            {
+                Control.ShadowOffset = new CGSize(0, 0.25);
+                Control.ShadowColor = UIColor.Gray;
+            }
         }
     }
 }
