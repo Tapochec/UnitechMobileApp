@@ -3,11 +3,30 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:d="http://xamarin.com/schemas/2014/forms/design"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:local="clr-namespace:UnitechMobileApp.mvvm.Schedule.WeekPicker"
              mc:Ignorable="d"
              x:Class="UnitechMobileApp.mvvm.Schedule.WeekPicker.WeekPickerPage">
     <ContentPage.Resources>
 
         <Color x:Key="MonthHeader.Background">#2196f3</Color>
+        <Color x:Key="WeekLine.Selected">#687ddb</Color>
+
+        <Style TargetType="Label" x:Key="DayOfTheWeekLabelStyle">
+            <Setter Property="HorizontalOptions" Value="Center"/>
+            <Setter Property="VerticalOptions" Value="Center"/>
+            <Setter Property="FontAttributes" Value="Bold"/>
+            <Setter Property="FontSize" Value="18"/>
+            <Setter Property="TextColor" Value="Black"/>
+        </Style>
+
+        <Color x:Key="DayLabel.Enabled">#000000</Color>
+        <Color x:Key="DayLabel.Disabled">#999999</Color>
+
+        <Style TargetType="Label" x:Key="DayLabelStyle">
+            <Setter Property="HorizontalOptions" Value="Center"/>
+            <Setter Property="VerticalOptions" Value="Center"/>
+            <Setter Property="FontSize" Value="18"/>
+        </Style>
 
     </ContentPage.Resources>
     <ContentPage.Content>
@@ -25,17 +44,72 @@
 
                 <Label
                     Grid.Column="1"
-                    VerticalOptions="Center"
                     HorizontalOptions="Center"
-                    Text="{Binding Path=MonthWithYear, Mode=TwoWay}"
+                    VerticalOptions="Center"
+                    Text="{Binding Path=MonthWithYear, Mode=OneWay}"
                     TextColor="White"
                     FontSize="Large"/>
 
                 <Image Grid.Column="2" x:Name="RightArrowImage"/>
 
             </Grid>
-            
-            
+
+            <!-- Название дней недели -->
+            <Grid HeightRequest="50">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+
+                <Label Style="{StaticResource DayOfTheWeekLabelStyle}" Grid.Column="0" Text="Пн"/>
+                <Label Style="{StaticResource DayOfTheWeekLabelStyle}" Grid.Column="1" Text="Вт"/>
+                <Label Style="{StaticResource DayOfTheWeekLabelStyle}" Grid.Column="2" Text="Ср"/>
+                <Label Style="{StaticResource DayOfTheWeekLabelStyle}" Grid.Column="3" Text="Чт"/>
+                <Label Style="{StaticResource DayOfTheWeekLabelStyle}" Grid.Column="4" Text="Пт"/>
+                <Label Style="{StaticResource DayOfTheWeekLabelStyle}" Grid.Column="5" Text="Сб"/>
+                <Label Style="{StaticResource DayOfTheWeekLabelStyle}" Grid.Column="6" Text="Вс"/>
+
+            </Grid>
+
+            <ListView
+                ItemsSource="{Binding Weeks}"
+                x:Name="ItemsContainer"
+                RowHeight="50"
+                HasUnevenRows="False"
+                SelectionMode="Single">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="*"/>
+                                    <ColumnDefinition Width="*"/>
+                                    <ColumnDefinition Width="*"/>
+                                    <ColumnDefinition Width="*"/>
+                                    <ColumnDefinition Width="*"/>
+                                    <ColumnDefinition Width="*"/>
+                                    <ColumnDefinition Width="*"/>
+                                </Grid.ColumnDefinitions>
+
+                                <Label Style="{StaticResource DayLabelStyle}" Grid.Column="0" Text="{Binding Monday.Day}"/>
+                                <Label Style="{StaticResource DayLabelStyle}" Grid.Column="1" Text="{Binding Tuesday.Day}"/>
+                                <Label Style="{StaticResource DayLabelStyle}" Grid.Column="2" Text="{Binding Wednesday.Day}"/>
+                                <Label Style="{StaticResource DayLabelStyle}" Grid.Column="3" Text="{Binding Thursday.Day}"/>
+                                <Label Style="{StaticResource DayLabelStyle}" Grid.Column="4" Text="{Binding Friday.Day}"/>
+                                <Label Style="{StaticResource DayLabelStyle}" Grid.Column="5" Text="{Binding Saturday.Day}"/>
+                                <Label Style="{StaticResource DayLabelStyle}" Grid.Column="6" Text="{Binding Sunday.Day}"/>
+
+                            </Grid>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>
