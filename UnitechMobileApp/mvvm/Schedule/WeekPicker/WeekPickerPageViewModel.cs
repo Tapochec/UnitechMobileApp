@@ -5,11 +5,15 @@ using System.Globalization;
 using System.Text;
 using UnitechMobileApp.mvvm.General;
 using UnitechMobileApp.ScheduleHelper;
+using Xamarin.Forms;
 
 namespace UnitechMobileApp.mvvm.Schedule.WeekPicker
 {
     class WeekPickerPageViewModel : ViewModelBase
     {
+        private SchedulePageViewModel scheduleVm;
+        private CultureInfo ruCulture = CultureInfo.CreateSpecificCulture("ru");
+
         private int curMonth;
         private int curYear;
 
@@ -27,12 +31,9 @@ namespace UnitechMobileApp.mvvm.Schedule.WeekPicker
             set { SetProperty(ref weeks, value); }
         }
 
-        //public Week SelectedWeek = Week.Empty;
-
-        private CultureInfo ruCulture = CultureInfo.CreateSpecificCulture("ru");
-
-        public WeekPickerPageViewModel()
+        public WeekPickerPageViewModel(SchedulePageViewModel scheduleVm)
         {
+            this.scheduleVm = scheduleVm;
             Weeks = new List<Week>();
             curMonth = DateTime.Now.Month;
             curYear = DateTime.Now.Year;
@@ -51,6 +52,16 @@ namespace UnitechMobileApp.mvvm.Schedule.WeekPicker
             header = firstLetter + header;
 
             return header;
+        }
+
+        public void OnWeekSelected(object sender, SelectedItemChangedEventArgs e)
+        {
+            Week selected = Weeks[e.SelectedItemIndex];
+
+            if (scheduleVm.SelectedWeek.Monday != selected.Monday)
+            {
+                scheduleVm.SelectedWeek = selected;
+            }
         }
 
         public void OnLeftArrowTapped()

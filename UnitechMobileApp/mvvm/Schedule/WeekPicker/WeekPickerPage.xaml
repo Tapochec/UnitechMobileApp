@@ -76,6 +76,7 @@
 
             </Grid>
 
+            <!-- Список недель на выбор -->
             <ListView
                 ItemsSource="{Binding Weeks}"
                 x:Name="ItemsContainer"
@@ -109,6 +110,8 @@
                     </DataTemplate>
                 </ListView.ItemTemplate>
             </ListView>
+
+            <Button Clicked="Button_Clicked" Text="Ок" VerticalOptions="End" HeightRequest="50"/>
 
         </StackLayout>
     </ContentPage.Content>
