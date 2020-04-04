@@ -101,20 +101,15 @@ namespace UnitechMobileApp.Model
         /// Метод берет расписание залогиненного пользователя с выбранной недели через API unitech-mo
         /// </summary>
         /// <returns>Json с расписанием</returns>
-        static public string Schedule(DateTime begdate, DateTime enddate, out bool sucses)
+        static public string Schedule(Week week)
         {
-            sucses = false;
             string result = null;
 
-            if (Week.IsValid(begdate, enddate))
-            {
-                sucses = true;
+            HttpWebRequest request = (HttpWebRequest)HttpWebRequest.Create(
+                $"{domain}&query=SCHEDULE&d={week.Monday.ToShortDateString()}-{week.Sunday.ToShortDateString()}");
+            request.CookieContainer = cookies;
 
-                HttpWebRequest request = (HttpWebRequest)HttpWebRequest.Create($"{domain}&query=SCHEDULE&d={begdate.ToShortDateString()}-{enddate.ToShortDateString()}");
-                request.CookieContainer = cookies;
-                
-                result = FillRequest(request);
-            }
+            result = FillRequest(request);
 
             return result;
         }

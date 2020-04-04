@@ -23,7 +23,10 @@ namespace UnitechMobileApp.mvvm.Schedule
             }
             var vm = new SchedulePageViewModel(this, vms);
 
-            WeekEntry.Focused += (sender, e) => { vm.OpenWeekPickerPage(); };
+            WeekLabel.GestureRecognizers.Add(new TapGestureRecognizer()
+            {
+                Command = new Command(vm.OpenWeekPickerPage)
+            });
 
             BindingContext = vm;
         }

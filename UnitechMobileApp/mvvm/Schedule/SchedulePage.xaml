@@ -33,16 +33,20 @@
 
                 <!-- Заголовок расписания, общая информация -->
                 <Label
-                    Text="{Binding HeaderText}"
-                    HorizontalTextAlignment="Center"
+                    Text="{Binding HeaderText}" d:Text="31 чётная неделя, весенний семестр"
+                    
                     FontSize="Medium"
-                    Margin="0, 20, 0, 20"/>
+                    Margin="20, 20, 0, 10"/>
 
                 <!-- Выбор недели расписания -->
-                <Entry
-                    Margin="20,5,20,10"
-                    x:Name="WeekEntry"
-                    Text="{Binding Path=SelectedWeek, Converter={StaticResource weekConverter}, Mode=OneWay}"/>
+                <Label
+                    d:Text="31.01.2020 - 31.01.2020"
+                    Text="{Binding Path=SelectedWeek, Converter={StaticResource weekConverter}, Mode=OneWay}"
+                    TextColor="Black"
+                    TextDecorations="Underline"
+                    FontSize="Medium"
+                    x:Name="WeekLabel"
+                    Margin="20,0,20,15"/>
 
                 <!-- Расписание на все дни -->
                 <StackLayout x:Name="Accordions" d:BackgroundColor="Gray" Spacing="2">

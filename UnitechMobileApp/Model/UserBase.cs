@@ -19,6 +19,11 @@ namespace UnitechMobileApp.Model
             return ScheduleConverter.JsonToShedule(Client.Schedule());
         }
 
+        public virtual ScheduleData GetSchedule(Week week)
+        {
+            return ScheduleConverter.JsonToShedule(Client.Schedule(week));
+        }
+
         abstract public List<IAcademic> JsonToListAcademics(string json);
     }
 }

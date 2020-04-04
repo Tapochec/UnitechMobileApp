@@ -92,7 +92,7 @@ namespace UnitechMobileApp.mvvm.Schedule.WeekPicker
         {
             List<Week> newWeeks = new List<Week>();
             DateTime start = new DateTime(curYear, curMonth, 1);
-            Week currentWeek = Week.GetWeekByDateTime(start);
+            Week currentWeek = Week.GetWeekByInnerDay(start);
 
             do
             {

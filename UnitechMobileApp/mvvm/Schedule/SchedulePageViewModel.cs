@@ -25,13 +25,22 @@ namespace UnitechMobileApp.mvvm.Schedule
         public Week SelectedWeek
         {
             get { return selectedWeek; }
-            set { SetProperty(ref selectedWeek, value); }
+            set
+            {
+                SetProperty(ref selectedWeek, value);
+                OnWeekSelected();
+            }
         }
 
         public SchedulePageViewModel(SchedulePage page, List<AccordionViewModel> accordionVms)
         {
             this.page = page;
             accordionViewModels = accordionVms;
+            SelectedWeek = Workspace.ActiveUser.GetSchedule().Week;
+        }
+
+        private void OnWeekSelected()
+        {
             Load();
         }
 
@@ -40,13 +49,13 @@ namespace UnitechMobileApp.mvvm.Schedule
         /// </summary>
         public void Load()
         {
-            ScheduleData schedule = Workspace.ActiveUser.GetSchedule();
+            // Получаем распиание с портала на выбранную неделю
+            ScheduleData schedule = Workspace.ActiveUser.GetSchedule(SelectedWeek);
 
             // Загрузка параметров
             HeaderText = schedule.GetHeaderText();
-            SelectedWeek = schedule.Week;
 
-            // Загрузка расписания
+            // Загрузка расписания в аккордионы
             var dayLessonsPairs = schedule.DayLessonsPairs;
             foreach (KeyValuePair<int, List<ScheduleLesson>> day in dayLessonsPairs)
             {
