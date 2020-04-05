@@ -40,7 +40,7 @@
     </ContentPage.Resources>
     
     <ContentPage.Content>
-        <ScrollView>
+        <ScrollView x:Name="scroll">
             <StackLayout>
                 <Grid>
                     <Grid.RowDefinitions>
@@ -258,7 +258,8 @@
                                 <ScrollView Orientation="Horizontal" HorizontalOptions="Fill">
                                     <dynamic_stack_layout:DynamicStackLayout ItemsSource="{Binding ClassMates}"
                                                                              Orientation="Horizontal"
-                                                                             HorizontalOptions="Fill">
+                                                                             HorizontalOptions="Fill"
+                                                                             CompressedLayout.IsHeadless="True">
                                         <dynamic_stack_layout:DynamicStackLayout.ItemTemplate>
                                             <DataTemplate>
                                                 <Grid WidthRequest="80">
@@ -267,7 +268,8 @@
                                                         <RowDefinition Height="auto"/>
                                                     </Grid.RowDefinitions>
 
-                                                    <controls:CircleImage Grid.Row="0"
+                                                    <controls:CircleImage x:Name="classmate_avatar"
+                                                                          Grid.Row="0"
                                                                           Source="{Binding Avatar}"
                                                                           WidthRequest="80"
                                                                           HeightRequest="80"
@@ -277,7 +279,9 @@
                                                                           VerticalOptions="Start"
                                                                           HorizontalOptions="CenterAndExpand">
                                                         <controls:CircleImage.GestureRecognizers>
-                                                            <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped"/>
+                                                            <TapGestureRecognizer Command="{Binding BindingContext.TapCommand,
+                                                                                  Source={x:Reference thisPage} }"
+                                                                                  CommandParameter="{x:Reference classmate_avatar}"/>
                                                         </controls:CircleImage.GestureRecognizers>
                                                     </controls:CircleImage>
 

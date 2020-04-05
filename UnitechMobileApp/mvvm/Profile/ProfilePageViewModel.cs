@@ -1,7 +1,9 @@
 ﻿using System.Collections.Generic;
+using System.Windows.Input;
 using UnitechMobileApp.Model;
 using UnitechMobileApp.mvvm.General;
 using UnitechMobileApp.ProfileHelper;
+using UnitechMobileApp.Views;
 using Xamarin.Forms;
 
 namespace UnitechMobileApp.mvvm.Profile
@@ -99,31 +101,25 @@ namespace UnitechMobileApp.mvvm.Profile
             return Color.FromHex("#61b329");
         }
 
+        public ICommand TapCommand { private set; get; }
+
         public ProfilePageViewModel(ContentPage page)
         {
             Page = page;
             activeUser = Workspace.ActiveUser.GetUserData();
             UserData = activeUser;
+            TapCommand = new ClassmateTapComand(this);
             FillClassMates();
         }
 
-        private void Refresh()
+        public void Refresh()
         {
             OnPropertyChanged("UserData");
             OnPropertyChanged("RatingProgress");
             OnPropertyChanged("OnlineColor");
             OnPropertyChanged("ProgressBarColor");
             OnPropertyChanged("ClassMates");
-        }
-
-        // the tapp command analog
-        public void Tapped(CircleImage sender)
-        {
-            selectedClassMate = Workspace.ActiveUser.GetUserData(sender.Tag.ToString());
-            selectedClassMate.UserAvatar = Workspace.ActiveUser.GetUserAvatar(sender.Tag.ToString(), sender.AvatarPath.ToString());
-            OnLoginedUser = activeUser.IsUserSame(selectedClassMate);
-            ClassMates = Workspace.ActiveUser.GetUserClassMates(sender.Tag.ToString());
-            Refresh();
+            ((ProfilePage)Page).ScrollToTop();
         }
 
         private void FillClassMates()

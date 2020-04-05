@@ -14,10 +14,9 @@ namespace UnitechMobileApp.Views
             BindingContext = vm;
         }
 
-        private void TapGestureRecognizer_Tapped(object sender, System.EventArgs e)
+        public void ScrollToTop()
         {
-            //через команду сделать не смог
-            ((ProfilePageViewModel)BindingContext).Tapped((CircleImage)sender);
+            scroll.ScrollToAsync(0, 0, false);
         }
     }
 }
