@@ -21,7 +21,14 @@ namespace UnitechMobileApp.mvvm.Schedule
             {
                 vms.Add((item as Accordion.Accordion).ViewModel);
             }
-            BindingContext = new SchedulePageViewModel(vms);
+            var vm = new SchedulePageViewModel(this, vms);
+
+            WeekLabel.GestureRecognizers.Add(new TapGestureRecognizer()
+            {
+                Command = new Command(vm.OpenWeekPickerPage)
+            });
+
+            BindingContext = vm;
         }
     }
 }

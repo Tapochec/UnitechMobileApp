@@ -106,6 +106,9 @@
     <AndroidResource Include="Resources\mipmap-xxxhdpi\launcher_foreground.png" />
   </ItemGroup>
   <ItemGroup>
+    <AndroidResource Include="Resources\drawable\WhiteArrowLeft.png" />
+  </ItemGroup>
+  <ItemGroup>
     <ProjectReference Include="..\UnitechMobileApp\UnitechMobileApp.csproj">
       <Project>{908C6922-B277-4ADA-9765-DEC0C6AE10D3}</Project>
       <Name>UnitechMobileApp</Name>
@@ -118,6 +121,7 @@
     <AndroidResource Include="Resources\drawable\stock_people.png">
       <Generator>MSBuild:UpdateGeneratedFiles</Generator>
     </AndroidResource>
+    <AndroidResource Include="Resources\drawable\WhiteArrowRight.png" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />
 </Project>

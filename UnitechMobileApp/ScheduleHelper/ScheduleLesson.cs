@@ -28,6 +28,11 @@ namespace UnitechMobileApp.ScheduleHelper
         /// Заметка. Обычно содержит информацию о празднике или переносе пары
         /// </summary>
         public string Note;
+
+        /// <summary>
+        /// Указывает, является ли день, к которому привязана запись, выходным
+        /// </summary>
+        //public bool IsHoliday = false;
     }
 
     /// <summary>

@@ -17,7 +17,7 @@ namespace UnitechMobileApp.Model
         public int id;
         public string avatarPath;
 
-        public virtual Dictionary<int, List<ScheduleLesson>> GetSchedule()
+        public virtual ScheduleData GetSchedule()
         {
             return ScheduleConverter.JsonToShedule(Client.Schedule());
         }
@@ -51,6 +51,11 @@ namespace UnitechMobileApp.Model
         {
             //todo: Если пользователь уже залогинен, то дёргать картинку из памяти устройства, а не из интернета
             return Client.Avatar(id, avatar);
+        }
+
+        public virtual ScheduleData GetSchedule(Week week)
+        {
+            return ScheduleConverter.JsonToShedule(Client.Schedule(week));
         }
 
         abstract public List<IAcademic> JsonToListAcademics(string json);
