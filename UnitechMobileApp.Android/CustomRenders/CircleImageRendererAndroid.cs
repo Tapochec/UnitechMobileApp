@@ -33,6 +33,7 @@ namespace UnitechMobileApp.Droid.CustomRenders
             //MemoryStream ms = new MemoryStream();
             //bd.Bitmap.Compress(Bitmap.CompressFormat.Jpeg, 50, ms);
             //((ImageView)child).SetImageDrawable(Drawable.CreateFromStream(ms, ""));
+            //child = CompressImage(child);
             try
             {
                 var radius = Math.Min(Width, Height) / 2;
@@ -55,5 +56,12 @@ namespace UnitechMobileApp.Droid.CustomRenders
             }
             return base.DrawChild(canvas, child, drawingTime);
         }
+
+        //private Android.Views.View CompressImage(Android.Views.View img)
+        //{
+        //    var result = (ImageView)img;
+        //
+        //    return result;
+        //}
     }
 }
