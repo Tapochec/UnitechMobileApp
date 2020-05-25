@@ -1,6 +1,7 @@
 ﻿using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Text;
 using UnitechMobileApp.Model;
 
@@ -58,7 +59,7 @@ namespace UnitechMobileApp.ProfileHelper
             result.ThirdName = fio.Length == 3? fio[2]: string.Empty;
 
             result.UserAvatar = Workspace.ActiveUser.GetUserAvatar();
-            result.Rating = double.Parse(raw.rating);
+            result.Rating = double.Parse(raw.rating, CultureInfo.InvariantCulture);
             result.BirthDay = raw.bd;
 
             result.FacultText = raw.FacultText;

@@ -59,7 +59,7 @@ namespace UnitechMobileApp.Views
 
             if (result)
             {
-                Navigation.PushModalAsync(new NavigationPage(new MainPage()));
+                Navigation.PushModalAsync(new MainPage());
             }
             else
             {

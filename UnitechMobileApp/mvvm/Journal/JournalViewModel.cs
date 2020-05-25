@@ -22,7 +22,7 @@ namespace UnitechMobileApp.ViewModels
             }
             set {
                 item = value;
-                journalPage.Navigation.PushModalAsync(new AcademPage(item));                
+                journalPage.Navigation.PushModalAsync(new AcademPage(item));
             }
         }
 
