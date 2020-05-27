@@ -17,23 +17,32 @@ namespace UnitechMobileApp.ViewModels
 
 
         private IAcademic item;
-        public IAcademic SelectedItem { get {
+        public IAcademic SelectedItem
+        {
+            get
+            {
                 return item;
             }
-            set {
+            set
+            {
                 item = value;
-                journalPage.Navigation.PushModalAsync(new AcademPage(item));
+                if (value != null)
+                {
+                    journalPage.Navigation.PushModalAsync(new AcademPage(item));
+                }
             }
         }
 
-        public void Update() {
+        public void Update()
+        {
             Academics = Workspace.ActiveUser.JsonToListAcademics(Client.StudentPlan());
-
+            SelectedItem = null;
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Academics"));
         }
 
 
-        public JournalViewModel(JournalPage page) {
+        public JournalViewModel(JournalPage page)
+        {
             journalPage = page;
             Update();
         }

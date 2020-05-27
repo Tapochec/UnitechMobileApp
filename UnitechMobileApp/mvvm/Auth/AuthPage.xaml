@@ -10,15 +10,17 @@
 
             <Entry
                 Text="{Binding Login}"
+                Placeholder="Login"
                 x:Name="LoginInput"
                 VerticalOptions="Start"
-                Margin="10,150,10,0"/>
+                Margin="10,150,10,0" ClearButtonVisibility="Never"/>
 
             <Entry
                 Text="{Binding Password}"
+                Placeholder="Password"
                 x:Name="PasswordInput"
                 VerticalOptions="Start"
-                Margin="10,0,10,0"/>
+                Margin="10,0,10,0" IsPassword="True"/>
 
             <Button
                 Text="Вход"
