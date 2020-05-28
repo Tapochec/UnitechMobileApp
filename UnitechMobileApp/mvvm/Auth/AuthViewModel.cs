@@ -3,17 +3,16 @@ using System.ComponentModel;
 using System.Windows.Input;
 using UnitechMobileApp.Model;
 using UnitechMobileApp.Models;
+using UnitechMobileApp.mvvm.General;
 using UnitechMobileApp.Views;
 using Xamarin.Forms;
 
 namespace UnitechMobileApp.ViewModels
 {
-    class AuthViewModel : INotifyPropertyChanged
+    class AuthViewModel : ViewModelBase
     {
         public ICommand AuthCommand { get; }
         private readonly AuthPage authPage;
-
-        public event PropertyChangedEventHandler PropertyChanged;
 
         public AuthViewModel(AuthPage authPage)
         {
@@ -65,9 +64,5 @@ namespace UnitechMobileApp.ViewModels
             }
         }
 
-        protected void OnPropertyChanged(string propName)
-        {
-            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propName));
-        }
     }
 }

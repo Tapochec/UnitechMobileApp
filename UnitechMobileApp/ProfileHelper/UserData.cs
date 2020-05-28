@@ -2,10 +2,11 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Text;
+using UnitechMobileApp.mvvm.General;
 
 namespace UnitechMobileApp.ProfileHelper
 {
-    public class UserData : INotifyPropertyChanged
+    public class UserData : ViewModelBase
     {
         private string firstName;//name
         private string secondName;//patronymic
@@ -254,12 +255,6 @@ namespace UnitechMobileApp.ProfileHelper
             return StudentHash == other.StudentHash;
         }
 
-        //Если не понадобится в будущем, можно удалить
-        protected void OnPropertyChanged(string propName)
-        {
-            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propName));
-        }
 
-        public event PropertyChangedEventHandler PropertyChanged;
     }
 }

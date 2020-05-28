@@ -1,0 +1,331 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="UnitechMobileApp.ConnectionHelper.Connection" Collapsed="true">
+    <Position X="22" Y="6.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIAAAAA=</HashCode>
+      <FileName>ConnectionHelper\Connection.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="UnitechMobileApp.Model.Client" Collapsed="true">
+    <Position X="23.75" Y="6.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAEAAAAAAAAAQAAAAAUCAAAAAECAAAAAAAAAAFAICAA=</HashCode>
+      <FileName>Model\Client.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="UnitechMobileApp.Model.StudentBehavior" Collapsed="true">
+    <Position X="0.5" Y="6.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACAAAAAAAA=</HashCode>
+      <FileName>Model\StudentBehavior.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="UnitechMobileApp.Model.TeacherBehavior" Collapsed="true">
+    <Position X="2.75" Y="6.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACAAAAAAAA=</HashCode>
+      <FileName>Model\TeacherBehavior.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="UnitechMobileApp.Model.UserBase" Collapsed="true">
+    <Position X="1.75" Y="5.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAQgAAAAAAAAAAAAgAAAAQAAAAAAAACAACQAIAAAgA=</HashCode>
+      <FileName>Model\UserBase.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="UnitechMobileApp.Model.Workspace" Collapsed="true">
+    <Position X="23.75" Y="7" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAIAAAACAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Model\Workspace.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="UnitechMobileApp.mvvm.Academ.AcademPage" Collapsed="true">
+    <Position X="9.75" Y="7.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>mvvm\Academ\AcademPage.xaml.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="UnitechMobileApp.mvvm.Academ.AcademViewModel" Collapsed="true">
+    <Position X="10" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAEAAEAAAAAAAAAAAAAQAAAAAAAAAiAA=</HashCode>
+      <FileName>mvvm\Academ\AcademViewModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="UnitechMobileApp.mvvm.Academ.SubjectLine" Collapsed="true">
+    <Position X="18.75" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAEAAAIAAAAEAAAAAAAQAAACAAAAAAAAAAAAAgAQ=</HashCode>
+      <FileName>mvvm\Academ\SubjectLine.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="UnitechMobileApp.Views.AuthPage" Collapsed="true">
+    <Position X="13.25" Y="7.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAIAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>mvvm\Auth\AuthPage.xaml.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="UnitechMobileApp.Views.JournalPage" Collapsed="true">
+    <Position X="13.25" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>mvvm\Journal\JournalPage.xaml.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="UnitechMobileApp.Views.LoadPage" Collapsed="true">
+    <Position X="11.5" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAACAAAgAAAAEAAAAAAABAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>mvvm\Load\LoadPage.xaml.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="UnitechMobileApp.Views.MainPage" Collapsed="true">
+    <Position X="9.75" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIAAAAA=</HashCode>
+      <FileName>mvvm\Main\MainPage.xaml.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="UnitechMobileApp.Views.ProfilePage" Collapsed="true">
+    <Position X="9.75" Y="6.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIAAA=</HashCode>
+      <FileName>mvvm\Profile\ProfilePage.xaml.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="UnitechMobileApp.ViewModels.AuthViewModel" Collapsed="true">
+    <Position X="12.25" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAABAAAAAAAAAAAAAAAAAAAAAAgAACAAAQAhAAEAA=</HashCode>
+      <FileName>mvvm\Auth\AuthViewModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="UnitechMobileApp.ViewModels.JournalViewModel" Collapsed="true">
+    <Position X="6.5" Y="3.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAAAAAAAAAAAAAAAQAAAAAAAAAACAAABAAAAAAgAA=</HashCode>
+      <FileName>mvvm\Journal\JournalViewModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="UnitechMobileApp.mvvm.General.ViewModelBase" Collapsed="true">
+    <Position X="9.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAIAAAAAAAgAEAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>mvvm\General\ViewModelBase.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="UnitechMobileApp.Models.AcademicData" Collapsed="true">
+    <Position X="17" Y="7" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAABAAABAAAAAIIYAAAAQIAgAAAEAgAAIAAAgAAAAA=</HashCode>
+      <FileName>mvvm\Journal\Academic.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="UnitechMobileApp.Models.TeacherAcademic" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="4.75" Y="6.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAEAAIAAAAAAAAAAAABAAAAAAAAAACAA=</HashCode>
+      <FileName>mvvm\Journal\Academics.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.172" />
+  </Class>
+  <Class Name="UnitechMobileApp.Models.StudentAcademic" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="6.75" Y="6.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAEAAIAAAAAAAAAAAABAAAAAAAAAACAA=</HashCode>
+      <FileName>mvvm\Journal\Academics.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.28" />
+  </Class>
+  <Class Name="UnitechMobileApp.mvvm.Profile.CircleImage" Collapsed="true">
+    <Position X="25.5" Y="1.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>gAAAAAAAAAAgAgAAAAAAAAAAAAAAAAAAAAAAAAABAAA=</HashCode>
+      <FileName>mvvm\Profile\CircleImage.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="UnitechMobileApp.mvvm.Profile.ClassmateTapComand" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="20.5" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAACAAQAAEAQAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>mvvm\Profile\ClassmateTapComand.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="UnitechMobileApp.mvvm.Profile.CustomLabel" Collapsed="true">
+    <Position X="25.5" Y="2.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AACAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>mvvm\Profile\CustomLabel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="UnitechMobileApp.mvvm.Profile.ProfilePageViewModel" Collapsed="true">
+    <Position X="13.25" Y="3.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>ACAAAIAAAABQAAAIAIQEAAAiBAIAAAAAAAAAIAAIEAI=</HashCode>
+      <FileName>mvvm\Profile\ProfilePageViewModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="UnitechMobileApp.mvvm.Schedule.Accordion.Accordion" Collapsed="true">
+    <Position X="11.5" Y="7.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAEAAAAAAAJEAAAAAAAAAIEEAAAAAAAACAAACAAAA=</HashCode>
+      <FileName>mvvm\Schedule\Accordion\Accordion.xaml.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="UnitechMobileApp.mvvm.Schedule.Accordion.AccordionViewModel" Collapsed="true">
+    <Position X="5.5" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAIAAAACAAAAAAAAAABAAAAAQAAAAAAA=</HashCode>
+      <FileName>mvvm\Schedule\Accordion\AccordionViewModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="UnitechMobileApp.mvvm.Schedule.Accordion.AutoSizeableWebView" Collapsed="true">
+    <Position X="23.75" Y="2.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>mvvm\Schedule\Accordion\AutoSizeableWebView.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="UnitechMobileApp.mvvm.Schedule.Accordion.ScheduleDisplayLesson" Collapsed="true">
+    <Position X="23.75" Y="1.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAgAAAAAEAAAQAAAAAAAAAAAAAAAAAIAAA=</HashCode>
+      <FileName>mvvm\Schedule\Accordion\ScheduleDisplayLesson.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="UnitechMobileApp.mvvm.Schedule.WeekPicker.WeekPickerPage" Collapsed="true">
+    <Position X="11.5" Y="6.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAACAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>mvvm\Schedule\WeekPicker\WeekPickerPage.xaml.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="UnitechMobileApp.mvvm.Schedule.WeekPicker.WeekPickerPageViewModel" Collapsed="true">
+    <Position X="11" Y="3.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAgQBAAAAgAAABCAAiAAAEAAAAAAAACAQAAAAAAAE=</HashCode>
+      <FileName>mvvm\Schedule\WeekPicker\WeekPickerPageViewModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="UnitechMobileApp.mvvm.Schedule.WeekPicker.WeekToStringConverter" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="20.5" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAIAAAAAAAAgAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>mvvm\Schedule\WeekPicker\WeekToStringConverter.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="UnitechMobileApp.mvvm.Schedule.SchedulePage" Collapsed="true">
+    <Position X="13.25" Y="6.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>mvvm\Schedule\SchedulePage.xaml.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="UnitechMobileApp.mvvm.Schedule.SchedulePageViewModel" Collapsed="true">
+    <Position X="7.75" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAgAAAAAAAAAABEAAAAAAAAAAAAAAAgADAIAAAgCA=</HashCode>
+      <FileName>mvvm\Schedule\SchedulePageViewModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="UnitechMobileApp.ProfileHelper.ClassMateInfo" Collapsed="true">
+    <Position X="18.75" Y="6.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>gAECAMgAAAAAAQAAAARAUAAAAEAAAABAIAJAAAAAAAA=</HashCode>
+      <FileName>ProfileHelper\ClassMateInfo.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="UnitechMobileApp.ProfileHelper.UserClassMateHelper" Collapsed="true">
+    <Position X="23.75" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAACAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>ProfileHelper\UserClassMateHelper.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="UnitechMobileApp.ProfileHelper.UserData" Collapsed="true">
+    <Position X="8.75" Y="3.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>SAAAAEgAAQBIAMAiAABAEgEAADAJAAkACABQAAQAxEA=</HashCode>
+      <FileName>ProfileHelper\UserData.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="UnitechMobileApp.ProfileHelper.UserDataConverter" Collapsed="true">
+    <Position X="22" Y="7" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>ProfileHelper\UserDataConverter.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="UnitechMobileApp.ScheduleHelper.ScheduleConverter" Collapsed="true">
+    <Position X="22" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAEAAAAAAAAAAAAAAAAAAAAAAAAAAEAAAAAAAAABAA=</HashCode>
+      <FileName>ScheduleHelper\ScheduleConverter.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="UnitechMobileApp.ScheduleHelper.ScheduleData" Collapsed="true">
+    <Position X="18.75" Y="7" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAEAAACIQAAAAAAAAAAAAIAAAAAAIAAAAA=</HashCode>
+      <FileName>ScheduleHelper\ScheduleData.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="UnitechMobileApp.ScheduleHelper.ScheduleLesson" Collapsed="true">
+    <Position X="17" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAgAAAAAEAAAAAAAAAAAAAAAAAAAIEAAAA=</HashCode>
+      <FileName>ScheduleHelper\ScheduleLesson.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="UnitechMobileApp.App" Collapsed="true">
+    <Position X="18.75" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAABAAAAgAEAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>App.xaml.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Struct Name="UnitechMobileApp.ScheduleHelper.Week" Collapsed="true">
+    <Position X="17" Y="6.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAwAAIAACAAAAAAAAoAACAAIACAIAAAAAAAAAgAAAA=</HashCode>
+      <FileName>ScheduleHelper\Week.cs</FileName>
+    </TypeIdentifier>
+  </Struct>
+  <Interface Name="UnitechMobileApp.DependencyServices.ICloseApp" Collapsed="true">
+    <Position X="28.5" Y="1.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>DependencyServices\ICloseApp.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="UnitechMobileApp.DependencyServices.IFileWorker" Collapsed="true">
+    <Position X="30.25" Y="1.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAABAAAAAAAAAAAAAAABAEAAAAABAA=</HashCode>
+      <FileName>DependencyServices\IFileWorker.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="UnitechMobileApp.Models.IAcademic" Collapsed="true">
+    <Position X="5.75" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAEAAIAAAAAAAAAAAABAAAAAAAAAACAA=</HashCode>
+      <FileName>mvvm\Journal\Academic.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Enum Name="UnitechMobileApp.ScheduleHelper.WeekParity" Collapsed="true">
+    <Position X="28.5" Y="2" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AIAAAAAACAAAAAAAAgAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>ScheduleHelper\ScheduleLesson.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

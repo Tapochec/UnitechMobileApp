@@ -6,6 +6,15 @@ using System.Text;
 
 namespace UnitechMobileApp.Models
 {
+
+    public interface IAcademic
+    {
+        string Semester { get; }
+        string Title { get; }
+        string Detail { get; }
+        AcademicData Data { get; set; }
+    }
+
     public class AcademicData
     {
         public string SubjText { get; set; }
@@ -25,63 +34,6 @@ namespace UnitechMobileApp.Models
 
         public string tutor { get; set; }
         public string lesson { get; set; }
-    }
-
-    public interface IAcademic
-    {
-        string Semester { get; }
-        string Title { get; }
-        string Detail { get; }
-        AcademicData Data { get; set; }
-    }
-
-    public class TeacherAcademic : IAcademic {
-
-        public string Semester { get {
-                return $"";
-            }
-        }
-
-        public string Title { 
-            get 
-            {
-                return Data.SubjText;
-            }
-        }
-        public string Detail { 
-            get 
-            {
-                return Data.GroupText;
-            } 
-        }
-        public AcademicData Data { get; set; }
-    }
-
-    public class StudentAcademic : IAcademic
-    {
-        public string Semester
-        {
-            get
-            {
-                return $"Семестр: {Data.Semester}";
-            }
-        }
-
-        public string Title
-        {
-            get
-            {
-                return Data.SubjText;
-            }
-        }
-        public string Detail
-        {
-            get
-            {
-                return Data.tutor;
-            }
-        }
-        public AcademicData Data { get; set; }
     }
 
 }

@@ -8,7 +8,7 @@
              x:Class="UnitechMobileApp.mvvm.Schedule.WeekPicker.WeekPickerPage">
     <ContentPage.Resources>
 
-        <Color x:Key="MonthHeader.Background">#2196f3</Color>
+        <Color x:Key="MonthHeader.Background">#d0af66</Color>
         <Color x:Key="WeekLine.Selected">#687ddb</Color>
 
         <Style TargetType="Label" x:Key="DayOfTheWeekLabelStyle">

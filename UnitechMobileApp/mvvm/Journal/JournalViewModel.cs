@@ -4,16 +4,15 @@ using UnitechMobileApp.Models;
 using UnitechMobileApp.Views;
 using UnitechMobileApp.Model;
 using UnitechMobileApp.mvvm.Academ;
+using UnitechMobileApp.mvvm.General;
 
 namespace UnitechMobileApp.ViewModels
 {
-    class JournalViewModel : INotifyPropertyChanged
+    class JournalViewModel : ViewModelBase
     {
         public List<IAcademic> Academics { get; private set; }
 
         private JournalPage journalPage;
-
-        public event PropertyChangedEventHandler PropertyChanged;
 
 
         private IAcademic item;
@@ -37,7 +36,7 @@ namespace UnitechMobileApp.ViewModels
         {
             Academics = Workspace.ActiveUser.JsonToListAcademics(Client.StudentPlan());
             SelectedItem = null;
-            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Academics"));
+            OnPropertyChanged("Academics");
         }
 
 
