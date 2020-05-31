@@ -1,6 +1,7 @@
 ﻿using System;
 using System.IO;
 using System.Net;
+using UnitechMobileApp.Models;
 using UnitechMobileApp.ScheduleHelper;
 
 namespace UnitechMobileApp.Model
@@ -219,6 +220,17 @@ namespace UnitechMobileApp.Model
         static public string UserClassMate(string id)
         {
             HttpWebRequest request = (HttpWebRequest)HttpWebRequest.Create($"{domain}{token}&query=USER_CLASSMATE&id={id}");
+            request.CookieContainer = cookies;
+            return FillRequest(request);
+        }
+
+        /// <summary>
+        /// Метод получает Журнал по предмету для определенной Группы
+        /// </summary>
+        /// <param name="academic"></param>
+        /// <returns></returns>
+        static public string Journal(AcademicData academic) {
+            HttpWebRequest request = (HttpWebRequest)HttpWebRequest.Create($"{domain}{token}&query=JOURNAL&group={academic.GroupText}&subj={academic.SubjCode}&sem={academic.Semester}");
             request.CookieContainer = cookies;
             return FillRequest(request);
         }

@@ -7,7 +7,7 @@
              x:Class="UnitechMobileApp.Views.JournalPage"
              Title="Журнал">
     <ContentPage.Content>
-        <ListView HorizontalOptions="CenterAndExpand" 
+        <ListView x:Name="JournalList" HorizontalOptions="CenterAndExpand" 
                   ItemsSource = "{Binding Academics}"
                   HasUnevenRows = "true"
                   SelectedItem="{Binding SelectedItem, Mode=TwoWay}"

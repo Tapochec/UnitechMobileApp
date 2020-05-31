@@ -9,6 +9,9 @@ namespace UnitechMobileApp.Views
     {
         JournalViewModel vm;
 
+        public void Unselect() {
+            JournalList.SelectedItem = null;
+        }
 
         public JournalPage()
         {

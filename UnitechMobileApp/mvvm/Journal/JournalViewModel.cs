@@ -28,6 +28,7 @@ namespace UnitechMobileApp.ViewModels
                 if (value != null)
                 {
                     journalPage.Navigation.PushModalAsync(new AcademPage(item));
+                    journalPage.Unselect();
                 }
             }
         }
