@@ -16,9 +16,8 @@ namespace UnitechMobileApp.mvvm.Academ
 
         public AcademPage(IAcademic academic)
         {
-            InitializeComponent();
             vm = new AcademViewModel(this, academic);
-
+            InitializeComponent();
             BindingContext = vm;
         }
     }
