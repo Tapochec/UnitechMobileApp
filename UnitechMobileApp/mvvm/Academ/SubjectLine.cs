@@ -115,6 +115,7 @@ namespace UnitechMobileApp.mvvm.Academ
                 }
             }
             );
+            result.itg = ((Convert.ToInt32(result.pos) * weights.lw + Convert.ToInt32(result.aud) * weights.auw + Convert.ToInt32(result.att) * weights.atw)/100).ToString();
             return result;
         }
     }
