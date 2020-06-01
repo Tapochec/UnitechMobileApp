@@ -21,9 +21,9 @@
                                 <RowDefinition Height="auto"/>
                                 <RowDefinition Height="auto"/>
                             </Grid.RowDefinitions>
-                            <Label Grid.Row="1" Text="{Binding Title}" FontSize="Small" TextColor="#000000"/>
-                            <Label Grid.Row="2" Text="{Binding Semester}" FontSize="Micro" TextColor="#5D5D5D"/>
-                            <Label Grid.Row="3" Text="{Binding Detail}" FontSize="Micro" TextColor="#5D5D5D"/>
+                            <Label Grid.Row="1" Text="{Binding Title}" FontSize="Small" TextColor="#000000" Margin="8,0,0,0"/>
+                            <Label Grid.Row="2" Text="{Binding Semester}" FontSize="Micro" TextColor="#5D5D5D" Margin="8,0,0,0"/>
+                            <Label Grid.Row="3" Text="{Binding Detail}" FontSize="Micro" TextColor="#5D5D5D" Margin="8,0,0,0"/>
                         </Grid>
                     </ViewCell>
                 </DataTemplate>

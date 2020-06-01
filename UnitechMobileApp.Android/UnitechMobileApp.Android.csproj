@@ -57,6 +57,7 @@
     <AndroidKeyStore>false</AndroidKeyStore>
     <AndroidSupportedAbis />
     <AndroidUseAapt2>true</AndroidUseAapt2>
+    <AndroidLinkMode>None</AndroidLinkMode>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Mono.Android" />
