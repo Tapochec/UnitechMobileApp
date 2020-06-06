@@ -39,17 +39,45 @@ namespace UnitechMobileApp.mvvm.Academ
 
     public class Lesson
     {
-        public string Title { get {
-                return $"{date} : {mark}";
-            } 
-        }
+        string date;
+        string mark;
 
-        public string date { get; set; }
+        public string Date
+        {
+            get
+            {
+                string result = "";
+                DateTime tmp;
+                if (DateTime.TryParse(date, out tmp))
+                    result = "Дата занятия : ";
+                else
+                    result = "";
+                return $"{result}{date}";
+            }
+            set
+            {
+                date = value;
+            }
+        }
         public string comment { get; set; }
-        public string mark { get; set; }
+        public string Mark
+        {
+            get
+            {
+                string result = "";
+                if (mark != "")
+                    result = $"Результат занятия : {mark}";
+                return result;
+            }
+            set
+            {
+                mark = value;
+            }
+        }
     }
 
-    public class SubjectResults {
+    public class SubjectResults
+    {
         public string sum { get; set; } = "0";
         public string pos { get; set; } = "100";
         public string aud { get; set; } = "100";
@@ -70,35 +98,42 @@ namespace UnitechMobileApp.mvvm.Academ
             return result;
         }
 
-        public People GetPeople(string id) {
+        public People GetPeople(string id)
+        {
             return people_list.First(x => { return x.userid == id; });
         }
 
-        public List<Lesson> SubjectToLessons(string id) {
+        public List<Lesson> SubjectToLessons(string id)
+        {
             bool find = false;
             people_list.ForEach(x => { if (!find) find = x.userid == id; });
-            List<Lesson> result = new List<Lesson>(); 
-            if (find) {
+            List<Lesson> result = new List<Lesson>();
+            if (find)
+            {
                 List<Score> UserScores = new List<Score>();
 
                 scores_list.ForEach(x => { if (x.userid == id) UserScores.Add(x); });
 
-                for (int i = 0; i < lessons_list.Count; i++) {
+                for (int i = 0; i < lessons_list.Count; i++)
+                {
                     string score = "";
-                    for (int j = 0; j < UserScores.Count; j++) {
-                        if (lessons_list[i].lesstime == UserScores[j].lesstime) {
+                    for (int j = 0; j < UserScores.Count; j++)
+                    {
+                        if (lessons_list[i].lesstime == UserScores[j].lesstime)
+                        {
                             score = scores_list[j].score;
                             break;
                         }
-                        
+
                     }
-                    result.Add(new Lesson() { date = lessons_list[i].realtime, mark = score, comment = lessons_list[i].comment });
+                    result.Add(new Lesson() { Date = lessons_list[i].realtime, Mark = score, comment = lessons_list[i].comment });
                 }
             }
             return result;
         }
 
-        public SubjectResults Results(string id) {
+        public SubjectResults Results(string id)
+        {
             SubjectResults result = new SubjectResults();
 
             //type == old   -> sum
@@ -106,8 +141,10 @@ namespace UnitechMobileApp.mvvm.Academ
             //type == au    -> aud
             //type == at    -> att
 
-            scores_list.ForEach(x => { 
-                if (x.userid == id) {
+            scores_list.ForEach(x =>
+            {
+                if (x.userid == id)
+                {
                     if (x.type == "old") result.sum = x.total;
                     if (x.type == "l") result.pos = x.total;
                     if (x.type == "au") result.aud = x.total;
@@ -115,7 +152,7 @@ namespace UnitechMobileApp.mvvm.Academ
                 }
             }
             );
-            result.itg = ((Convert.ToInt32(result.pos) * weights.lw + Convert.ToInt32(result.aud) * weights.auw + Convert.ToInt32(result.att) * weights.atw)/100).ToString();
+            result.itg = ((Convert.ToInt32(result.pos) * weights.lw + Convert.ToInt32(result.aud) * weights.auw + Convert.ToInt32(result.att) * weights.atw) / 100).ToString();
             return result;
         }
     }

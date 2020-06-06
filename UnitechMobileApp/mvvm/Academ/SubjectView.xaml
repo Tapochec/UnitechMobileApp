@@ -9,14 +9,14 @@
         <StackLayout>
             <Label x:Name="Fio" HorizontalOptions="CenterAndExpand" TextColor="Black"/>
             <Label x:Name="Resulst" HorizontalOptions="CenterAndExpand" TextColor="Black"/>
-            <ListView x:Name="LessDays" HasUnevenRows="true">
+            <ListView x:Name="LessDays" RowHeight="80">
                 <ListView.ItemTemplate>
                     <DataTemplate>
                         <ViewCell IsEnabled="False">
                             <Grid>
                                 <Grid.RowDefinitions>
-                                    <RowDefinition Height="*"/>
-                                    <RowDefinition Height="*"/>
+                                    <RowDefinition Height="1"/>
+                                    <RowDefinition Height="auto"/>
                                 </Grid.RowDefinitions>
                                 
                                 <Grid Grid.Row="1">
@@ -25,11 +25,11 @@
                                         <ColumnDefinition Width="auto"/>
                                     </Grid.ColumnDefinitions>
 
-                                    <Label Grid.Column="1"  Text="{Binding date}" Margin="0,0,0,0"/>
-                                    <Label Grid.ColumnSpan="5" Grid.Column="2"  Text="{Binding mark}" TextColor="Black" Margin="8,0,0,0"/>
+                                    <Label Grid.Column="1"  Text="{Binding Date}" Margin="0,0,0,0"/>
+                                    <Label Grid.Column="2"  Text="{Binding Mark}" TextColor="Black" Margin="8,0,0,0"/>
                                 
                                 </Grid>
-                                <Label  Grid.Row="2" Text="{Binding comment}" Margin="8,0,0,0"/>
+                                <Label  Grid.Row="2" Text="{Binding comment}" Margin="6,0,0,0"/>
                                 
                             </Grid>
                         </ViewCell>
